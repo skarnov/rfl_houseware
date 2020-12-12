@@ -1,0 +1,2 @@
+[20-Nov-2020 08:38:00 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 98570240 bytes) in /home/evistechnology/spotlight.evistechnology.com/app/Helpers/functions.php on line 17
+[20-Nov-2020 08:38:13 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 98570240 bytes) in /home/evistechnology/spotlight.evistechnology.com/app/Helpers/functions.php on line 17

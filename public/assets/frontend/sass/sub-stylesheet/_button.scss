@@ -1,0 +1,38 @@
+
+
+.view-more {
+	padding: 13px 40px;
+	border-radius: 5px;
+	background-image: linear-gradient(to bottom right, #de152a, #ac0314);
+	font-size: 14px;
+	color: white;
+	display: inline-block;
+	text-transform: uppercase;
+	font-weight: 700;
+	@include transition(0.3s);
+	&:hover {
+		box-shadow: 0 10px 20px 0 rgba(black, 0.1);
+		transform: translateY(-5px);
+		color: white;
+	}
+	@include breakpoint(lg){
+		padding: 18px 58px;
+		font-size: 16px;
+	}
+}
+
+.blog-btn {
+	padding: 13px 25px;
+	border-radius: 5px;
+	background-image: linear-gradient(to bottom right, #de152a, #ac0314);
+	font-size: 14px;
+	color: white;
+	display: inline-block;
+	font-weight: 400;
+	@include transition(0.3s);
+	&:hover {
+		box-shadow: 0 10px 20px 0 rgba(black, 0.1);
+		transform: translateY(-5px);
+		color: white;
+	}
+}

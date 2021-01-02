@@ -3,9 +3,9 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12">
-                    <h2 style="margin-bottom:10px !important;">Edit New Featured</h2>
+                    <h2 style="margin-bottom:10px !important;">Edit The Brand & Partner</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ URL::to('/manage_featured') }}" class="btn  btn-simple btn-sm btn-info btn-filter"><i class="fa fa-list-ul"></i><span>&nbsp;All Featured</span></a></li>
+                        <li class="breadcrumb-item"><a href="{{ URL::to('/manage_featured') }}" class="btn  btn-simple btn-sm btn-info btn-filter"><i class="fa fa-list-ul"></i><span>&nbsp;All Brands & Partners</span></a></li>
                     </ul>
                 </div>
             </div>

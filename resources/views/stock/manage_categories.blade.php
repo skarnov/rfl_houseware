@@ -52,7 +52,7 @@
                                         </td>
                                         <td>
                                             <a href="edit_category/{{ $category->category_id }}" class="btn btn-sm btn-outline-success" title="Edit"><i class="icon-pencil"></i></a>
-                                            <a href="javascript:;" data-id="{{ $category->category_id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>
+<!--                                            <a href="javascript:;" data-id="{{ $category->category_id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>-->
                                         </td>
                                     </tr>
                                     @endforeach

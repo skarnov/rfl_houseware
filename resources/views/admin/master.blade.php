@@ -129,9 +129,9 @@
                                     <li id="listPages">
                                         <a href="javascrpt:;" class="has-arrow"><i class="icon-volume-2"></i><span>Pages</span></a>
                                         <ul>
-                                            <li id="pages"><a href="{{ URL::to('/content') }}">Pages</a></li>
+                                            <li id="pages"><a href="{{ URL::to('/edit_page/1') }}">Home Page</a></li>
                                             <li id="innerpages"><a href="{{ URL::to('/manage_inner_pages') }}">Inner Pages</a></li>
-                                            <li id="addfeatured"><a href="{{ URL::to('/add_featured') }}">Featured</a></li>
+                                            <li id="addfeatured"><a href="{{ URL::to('/add_featured') }}">Brands & Partners</a></li>
                                         </ul>
                                     </li>
                                     <li id="newsArea">
@@ -192,13 +192,13 @@
                                             <li id="addBlog"><a href="{{ URL::to('/add_blog') }}">Add Blog</a></li>
                                         </ul>
                                     </li>
-                                    <li id="storeArea">
+<!--                                    <li id="storeArea">
                                         <a href="javascrpt:;" class="has-arrow"><i class="icon-graph"></i><span>Manage Stores</span></a>
                                         <ul>
                                             <li id="storeList"><a href="{{ URL::to('/manage_stores') }}">Stores List</a></li>
                                             <li id="addStore"><a href="{{ URL::to('/add_store') }}">Add Store</a></li>
                                         </ul>
-                                    </li>
+                                    </li>-->
                                     <li id="catalogArea">
                                         <a href="javascrpt:;" class="has-arrow"><i class="icon-doc"></i><span>Manage Catalogs</span></a>
                                         <ul>
@@ -206,12 +206,12 @@
                                             <li id="addCatalog"><a href="{{ URL::to('/add_catalog') }}">Add Catalog</a></li>
                                         </ul>
                                     </li>
-                                    <li id="outletarea">
+                                    <li id="outletArea">
                                         <a href="javascrpt:;" class="has-arrow"><i class="icon-briefcase"></i><span>Outlet</span></a>
                                         <ul>
-                                            <li id="add_upazila"><a href="{{ URL::to('/add_upazila') }}">Upazila</a></li>
-                                            <li id="list_outlet"><a href="{{ URL::to('/list_outlet') }}">List Outlet</a></li>
-                                            <li id="add_outlets"><a href="{{ URL::to('/add_outlets') }}">Outlets</a></li>
+                                            <li id="addUpazila"><a href="{{ URL::to('/add_upazila') }}">Upazila</a></li>
+                                            <li id="listOutlet"><a href="{{ URL::to('/list_outlet') }}">List Outlet</a></li>
+                                            <li id="addOutlets"><a href="{{ URL::to('/add_outlets') }}">Add Outlets</a></li>
                                         </ul>
                                     </li>   
                                     <li id="sticky">

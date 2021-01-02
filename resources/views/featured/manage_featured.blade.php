@@ -3,9 +3,9 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12">
-                    <h2 style="margin-bottom:10px !important;">All Featured</h2>
+                    <h2 style="margin-bottom:10px !important;">All Brands & Partners</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ URL::to('/add_featured') }}" class="btn  btn-simple btn-sm btn-info btn-filter"><i class="fa fa-plus-square"></i><span>&nbsp;All Featured</span></a></li> 
+                        <li class="breadcrumb-item"><a href="{{ URL::to('/add_featured') }}" class="btn  btn-simple btn-sm btn-info btn-filter"><i class="fa fa-plus-square"></i><span>&nbsp;All Brand & Partner</span></a></li> 
                     </ul>
                 </div>         
             </div>
@@ -26,7 +26,7 @@
                     <div class="body">
                         <div class="table-responsive">
                             <span>
-                                Displaying Featured <strong>from {{ $all_featured->currentPage() }} to {{ $all_featured->count() }}</strong> out of total <strong>{{ $all_featured->total() }}</strong>
+                                Displaying Brands & Partners <strong>from {{ $all_featured->currentPage() }} to {{ $all_featured->count() }}</strong> out of total <strong>{{ $all_featured->total() }}</strong>
                             </span><hr />
                             <table class="table table-hover js-basic-example dataTable table-custom m-b-0">
                                 <thead>

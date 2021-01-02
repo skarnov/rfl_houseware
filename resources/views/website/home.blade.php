@@ -18,12 +18,13 @@
         <link rel="stylesheet" href="{{ URL('/assets/frontend/css/swiper.min.css') }}">
         <link rel="stylesheet" href="{{ URL('/assets/frontend/css/themify-icons.css') }}">
         <link rel="stylesheet" href="{{ URL('/assets/frontend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ URL('/assets/frontend/css/slider.css') }}">
         <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5efc43f86e69f70012dc1283&product=inline-share-buttons&cms=sop' async='async'></script>
     </head>
 
     <body id="top-page">
         <script>
-var jQ = new Array();
+            var jQ = new Array();
         </script>
         <div class="outlet-area">
             <div class="rfl-outlet-title">
@@ -169,16 +170,10 @@ var jQ = new Array();
                 </div>
             </div>
         </div>
-
         <!-- mobile-menu-end -->
 
-        <?php
-        $file_parts = pathinfo($all_sliders->featured_image);
-        $extension = $file_parts['extension'];
-        ?>
-
         <!-- header section start -->
-        <header class="header <?php echo ($extension == 'jpg') ? '' : 'style3' ?>">
+        <header class="header style3">
             <div class="header-top">
                 <div class="container">
                     <div class="row align-items-center">
@@ -324,20 +319,59 @@ var jQ = new Array();
         <!-- header section end -->
 
         <!-- banner-section start -->
-        <section style="background-image: url('<?php echo '../uploads/' . $all_sliders->featured_image ?>')" class="banner-section <?php echo ($extension == 'jpg') ? '' : 'video-bg' ?> d-flex align-items-center">
-            <div class="video">
-                <video style="width:100%;" muted="" playsinline="" autoplay="" loop="">
-                    <source src="{{ URL::to('/uploads/') }}{{'/'}}{{ $all_sliders->featured_image }}" type="video/mp4">
-                </video>
-            </div>
-            <div class="container pt--80">
-                <div class="banner-content">
-                    <h2>{!! $all_sliders->additional_info !!}</h2>
-                    <p>{!! $all_sliders->content_description !!}</p>
-                    <a href="{!! $all_sliders->external_link !!}" class="banner-btn">Read More</a>
+        @if (isset($all_sliders->content_slug) == 'video-slider')
+        <section class="banner-slider">
+            <div id="rflSliderControl" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="banner-section video-bg d-flex align-items-center">
+                            <div class="video">
+                                <video style="width:100%;" muted="" playsinline="" autoplay="" loop="">
+                                    <source src="{{ URL::to('/uploads/') }}{{'/'}}{{ $all_sliders->featured_image }}" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="container pt--80">
+                                <div class="banner-content">
+                                    <h2>{!! $all_sliders->additional_info !!}</h2>
+                                    <p>{!! $all_sliders->content_description !!}</p>
+                                    <a href="{!! $all_sliders->external_link !!}" class="banner-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        @else
+        <section class="banner-slider">
+            <div id="rflSliderControl" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <?php $i = 0 ?>
+                    @foreach ($all_sliders as $slider)
+                    <li data-target="#rflSliderControl" data-slide-to="<?php echo $i ?>"  <?php echo ($i == 0) ? 'class="active"' : '' ?>></li>
+                    <?php $i++ ?>
+                    @endforeach
+                </ol>
+                <div class="carousel-inner">
+                    <?php $i = 0 ?>
+                    @foreach ($all_sliders as $slider)
+                    <div class="carousel-item  <?php echo ($i == 0) ? 'active' : '' ?>">
+                        <div style="background-image: url('<?php echo '../uploads/' . $slider->featured_image ?>')" class="banner-section d-flex align-items-center">
+                            <div class="container pt--80">
+                                <div class="banner-content">
+                                    <h2>{!! $slider->additional_info !!}</h2>
+                                    <p>{!! $slider->content_description !!}</p>
+                                    <a href="{!! $slider->external_link !!}" class="banner-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php $i++ ?>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
         <!-- banner-section end -->
 
         <!-- about rfl section start -->
@@ -520,7 +554,6 @@ var jQ = new Array();
                         </div>
                     </div>
                     @endforeach
-
                     <div class="col-12 text-center pt--10 pt_lg--60">
                         <a href="{{ $product_section_two->featured_image }}" class="view-more">View More</a>
                     </div>
@@ -540,7 +573,7 @@ var jQ = new Array();
                         @foreach ($awards as $award)
                         <div class="swiper-slide">
                             <div class="client-item">
-                                <img src="{{ URL::to('/uploads/files') }}{{'/'}}{{ $award->featured_image }}" alt="{{ $award->content_title }}">
+                                <a href="{{ URL('/achievements') }}"><img src="{{ URL::to('/uploads/files') }}{{'/'}}{{ $award->featured_image }}" alt="{{ $award->content_title }}"></a>
                             </div>
                         </div>
                         @endforeach
@@ -609,9 +642,13 @@ var jQ = new Array();
                                 <h6 class="widget-title">Products</h6>
                                 <div class="widge-wrapper">
                                     <ul class="widget-links list-unstyled pl-0">
-                                        <li><a href="{{ URL('/category_listing/') }}/household" id="households">Households</a></li>
-                                        <li><a href="{{ URL('/category_listing/') }}/furniture" id="furniture">Furniture</a></li>
-                                        <li><a href="{{ URL('/category_listing/') }}/industrial" id="industrial">Industrial</a></li>
+                                        <?php
+                                        foreach ($all_categories as $key => $category) {
+                                            ?>
+                                            <li><a href="{{ URL('/category_listing/') }}/<?php echo $category->category_name ?>" id="<?php echo $category->category_name ?>" class="text-capitalize"><?php echo $category->category_name ?></a></li>
+                                            <?php
+                                        }
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -628,7 +665,6 @@ var jQ = new Array();
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-6 col-lg-3">
                             <div class="footer-widget">
                                 <h6 class="widget-title">Quick Links</h6>
@@ -694,48 +730,48 @@ var jQ = new Array();
         <script src="{{ URL('/assets/frontend/js/simpleParallax.js') }}"></script>
         <script src="{{ URL('/assets/frontend/js/functions.js') }}"></script>
         <script>
-                            for (var i in jQ) {
-                                jQ[i]();
-                            }
+            for (var i in jQ) {
+                jQ[i]();
+            }
 
-                            function productAndCategory(iD) {
-                                $(".active").removeClass('active');
-                                $("#cat-" + iD).addClass('active');
+            function productAndCategory(iD) {
+                $(".active").removeClass('active');
+                $("#cat-" + iD).addClass('active');
 
-                                $.ajax({
-                                    type: 'GET',
-                                    url: "{{ URL('/find_categories') }}/" + iD,
-                                    beforeSend: function () {
-                                        $("#desireCategories").html('<h3>Searching...</h3>');
-                                    },
-                                    success: function (data) {
-                                        $("#desireCategories").html(data);
-                                    }
-                                });
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ URL('/find_categories') }}/" + iD,
+                    beforeSend: function () {
+                        $("#desireCategories").html('<h3>Searching...</h3>');
+                    },
+                    success: function (data) {
+                        $("#desireCategories").html(data);
+                    }
+                });
 
-                                $.ajax({
-                                    type: 'GET',
-                                    url: "{{ URL('/find_products') }}/" + iD,
-                                    beforeSend: function () {
-                                        $("#desireCategories").html('<h3>Searching...</h3>');
-                                    },
-                                    success: function (data) {
-                                        $("#desireProducts").html(data);
-                                    }
-                                });
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ URL('/find_products') }}/" + iD,
+                    beforeSend: function () {
+                        $("#desireCategories").html('<h3>Searching...</h3>');
+                    },
+                    success: function (data) {
+                        $("#desireProducts").html(data);
+                    }
+                });
 
-                                $('#mainNav-mc1-tab').click();
-                            }
+                $('#mainNav-mc1-tab').click();
+            }
 
-                            function subcategoryProducts(iD) {
-                                $.ajax({
-                                    type: 'GET',
-                                    url: "{{ URL('/subcategory_products') }}/" + iD,
-                                    success: function (data) {
-                                        $("#desireProducts").html(data);
-                                    }
-                                });
-                            }
+            function subcategoryProducts(iD) {
+                $.ajax({
+                    type: 'GET',
+                    url: "{{ URL('/subcategory_products') }}/" + iD,
+                    success: function (data) {
+                        $("#desireProducts").html(data);
+                    }
+                });
+            }
         </script>
     </body>
 </html>

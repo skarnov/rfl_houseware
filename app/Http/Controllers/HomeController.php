@@ -50,7 +50,7 @@ class HomeController extends Controller {
 
         $all_categories = DB::table('categories')
                 ->select('category_id', 'category_name', 'url_slug')
-                ->where('fk_category_id', '0')
+                ->where('fk_category_id', '0', '')
                 ->where('category_status', 'active')
                 ->orderBy('category_serial', 'ASC')
                 ->get();
@@ -86,10 +86,18 @@ class HomeController extends Controller {
     /* 001. Home */
 
     public function index() {
-        $all_sliders = DB::table('contents')
-                ->where('content_slug', 'slider')
+        $video_slider = DB::table('contents')
+                ->where('content_slug', 'video-slider')
                 ->where('content_status', 'active')
                 ->first();
+
+        if (!$video_slider):
+            $all_sliders = DB::table('contents')
+                    ->where('content_slug', 'slider')
+                    ->where('content_status', 'active')
+                    ->orderBy('content_serial', 'asc')
+                    ->get();
+        endif;
 
         $featured_categories = DB::table('contents')
                 ->where('content_slug', 'featured-slider')
@@ -105,12 +113,14 @@ class HomeController extends Controller {
                 ->get();
 
         $first_category = $this->data['all_categories'][0]->category_id;
+
         $featured_products = DB::table('products')
-                ->where('category_id', $first_category)
-                ->where('product_attribute', 'featured')
-                ->where('product_status', 'active')
-                ->orderBy('product_id', 'DESC')
+                ->where('products.category_id', $first_category)
+                ->where('products.product_attribute', 'featured')
+                ->where('products.product_status', 'active')
+                ->orderBy('products.product_id', 'DESC')
                 ->get();
+
         $featured_subcategories = DB::select(DB::raw("SELECT
                     L1.category_id,
                     L1.fk_category_id,
@@ -123,11 +133,19 @@ class HomeController extends Controller {
                         LEFT JOIN categories AS L3 ON L2.category_id = L3.fk_category_id
                 WHERE L0.fk_category_id = 0 AND L1.fk_category_id = '$first_category' AND L1.category_status = 'active' GROUP BY L1.category_name ORDER BY L1.category_serial ASC"));
 
-        $new_products = DB::table('products')
-                ->where('product_attribute', 'new-arrival')
-                ->where('product_status', 'active')
-                ->orderBy('product_id', 'DESC')
-                ->get();
+        $new_products = DB::select(DB::raw("SELECT
+                    products.product_id, 
+                    products.url_slug, 
+                    products.product_image, 
+                    products.product_name
+                FROM
+                    products
+                    LEFT JOIN categories AS category ON category.category_id = products.category_id
+                WHERE 
+                products.product_attribute = 'new-arrival' AND
+                products.product_status = 'active' AND 
+                category.category_status = 'active'
+                ORDER BY products.product_id DESC LIMIT 24"));
 
         $awards = DB::table('contents')
                 ->orderBy('content_serial', 'ASC')
@@ -142,13 +160,13 @@ class HomeController extends Controller {
         $popup = DB::table('popup_image')->select('*')
                 ->orderByDesc('id')
                 ->first();
-        
+
         $data = array();
         $data['settings'] = $this->data['settings'];
         $data['all_categories'] = $this->data['all_categories'];
         $data['all_subcategories'] = $this->data['all_subcategories'];
         $data['all_items'] = $this->data['all_items'];
-        $data['all_sliders'] = $all_sliders;
+        $data['all_sliders'] = $video_slider ? $video_slider : $all_sliders;
         $data['new_products'] = $new_products;
         $data['awards'] = $awards;
         $data['featured_categories'] = $featured_categories;
@@ -159,7 +177,7 @@ class HomeController extends Controller {
         $data['popup_image'] = $popup;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['page_description'] = DB::table('page_attribute')->where('attribute_name', 'page-description')->first();
         $data['home_tab'] = DB::table('page_attribute')->where('attribute_name', 'home-tab')->get();
         $data['product_section_one'] = DB::table('page_attribute')->where('attribute_name', 'product-section-one')->first();
@@ -266,7 +284,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/product_listing', $data);
         return view('website/main', $data);
     }
@@ -294,7 +312,7 @@ class HomeController extends Controller {
         $product_info = DB::table('products')
                 ->where('product_id', $product_id)
                 ->first();
-                
+
         $category_name = DB::table('categories')->where('category_id', $product_info->category_id)->first('category_name')->category_name;
         $subcategory_name = DB::table('categories')->where('category_id', $product_info->subcategory_id)->first('category_name')->category_name;
 
@@ -331,7 +349,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/product_details', $data);
         return view('website/main', $data);
     }
@@ -361,6 +379,9 @@ class HomeController extends Controller {
 
         $products = DB::table('products')
                 ->where('product_status', 'active')
+                ->whereNotNull('category_id')
+                ->whereNotNull('subcategory_id')
+                ->whereNotNull('item_id')
                 ->when($search_text, function ($query, $search_text) {
                     return $query->where('product_name', 'like', "%$search_text%");
                 })
@@ -380,7 +401,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/product_search', $data);
         return view('website/main', $data);
     }
@@ -416,7 +437,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/blog', $data);
         return view('website/main', $data);
     }
@@ -436,7 +457,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/blog_details', $data);
         return view('website/main', $data);
     }
@@ -456,7 +477,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'about')->first();
         $data['content'] = view('website/about', $data);
         return view('website/main', $data);
@@ -477,7 +498,7 @@ class HomeController extends Controller {
         $data['social'] = Social::select('*')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'our-brands')->first();
         $data['featured_image'] = DB::table('featured_slider')->where('pages', 'our-brands')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/our_brands', $data);
         return view('website/main', $data);
     }
@@ -496,7 +517,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'global-presence')->first();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/global_presence', $data);
         return view('website/main', $data);
     }
@@ -514,7 +535,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'quality-compliance')->first();
         $data['content'] = view('website/quality_compliance', $data);
         return view('website/main', $data);
@@ -533,7 +554,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'factories')->first();
         $data['content'] = view('website/factories', $data);
         return view('website/main', $data);
@@ -552,7 +573,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'achievements')->first();
         $data['content'] = view('website/achievements', $data);
         return view('website/main', $data);
@@ -571,15 +592,15 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['social'] = Social::select('*')->get();
         $data['address'] = Address::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'contact')->first();
-        $data['country']= DB::table('country')
-            ->where('status', 'Active')
-            ->get();
-        $data['categories']= DB::table('categories')
-            ->where('category_status', 'active')
-            ->where('fk_category_id', 0)
-            ->get();
+        $data['country'] = DB::table('country')
+                ->where('status', 'Active')
+                ->get();
+        $data['categories'] = DB::table('categories')
+                ->where('category_status', 'active')
+                ->where('fk_category_id', 0)
+                ->get();
         $data['content'] = view('website/contact', $data);
         return view('website/main', $data);
     }
@@ -597,7 +618,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'faq')->first();
         $data['content'] = view('website/FAQ', $data);
         return view('website/main', $data);
@@ -616,7 +637,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['featured_image'] = DB::table('featured_slider')->where('pages', 'partners')->get();
         $data['page_info'] = DB::table('pages')->where('page_slug', 'partners')->first();
         $data['content'] = view('website/partners', $data);
@@ -636,7 +657,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/terms_of_use', $data);
         return view('website/main', $data);
     }
@@ -654,7 +675,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/privacy_policy', $data);
         return view('website/main', $data);
     }
@@ -675,7 +696,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/catalog', $data);
         return view('website/main', $data);
     }
@@ -693,6 +714,9 @@ class HomeController extends Controller {
         $data['all_subcategories'] = $this->data['all_subcategories'];
         $data['all_items'] = $this->data['all_items'];
         $data['sitcky'] = $sitcky;
+        $data['address'] = Address::select('*')->get();
+        $data['social'] = Social::select('*')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         return view('website/sustainability', $data);
     }
 
@@ -712,7 +736,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/news', $data);
         return view('website/main', $data);
     }
@@ -732,7 +756,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/news_details', $data);
         return view('website/main', $data);
     }
@@ -753,7 +777,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/event', $data);
         return view('website/main', $data);
     }
@@ -773,7 +797,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/event_details', $data);
         return view('website/main', $data);
     }
@@ -802,7 +826,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/photo_album', $data);
         return view('website/main', $data);
     }
@@ -830,7 +854,7 @@ class HomeController extends Controller {
         $data['image_gallery'] = $image_gallery;
         $data['sitcky'] = $sitcky;
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/image_gallery', $data);
         return view('website/main', $data);
     }
@@ -859,7 +883,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/video_album', $data);
         return view('website/main', $data);
     }
@@ -890,7 +914,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/video_gallery', $data);
         return view('website/main', $data);
     }
@@ -909,8 +933,8 @@ class HomeController extends Controller {
         $data['all_items'] = $this->data['all_items'];
         $data['sitcky'] = $sitcky;
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
-        $data['address'] = Address::select('*')->get(); 
+        $data['logo'] = DB::table('image_configurations')->get();
+        $data['address'] = Address::select('*')->get();
         $data['content'] = view('website/sitemap', $data);
         return view('website/main', $data);
     }
@@ -921,16 +945,16 @@ class HomeController extends Controller {
         $data = array();
         $data['title'] = 'Success';
         $sitcky = DB::table('sticky_content_footer')
-            ->where('status', 'on')
-            ->get();
+                ->where('status', 'on')
+                ->get();
         $data['settings'] = $this->data['settings'];
         $data['all_categories'] = $this->data['all_categories'];
         $data['all_subcategories'] = $this->data['all_subcategories'];
         $data['all_items'] = $this->data['all_items'];
-        $data['sitcky'] = $sitcky;        
+        $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/success', $data);
         return view('website/main', $data);
     }
@@ -977,7 +1001,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['social'] = Social::select('*')->get();
         $data['address'] = Address::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/product_listing', $data);
         return view('website/main', $data);
     }
@@ -996,7 +1020,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['social'] = Social::select('*')->get();
         $data['address'] = Address::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/bestbuy', $data);
         return view('website/main', $data);
     }
@@ -1015,7 +1039,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['social'] = Social::select('*')->get();
         $data['address'] = Address::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/exclusive', $data);
         return view('website/main', $data);
     }
@@ -1034,7 +1058,7 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['social'] = Social::select('*')->get();
         $data['address'] = Address::select('*')->get();
-        $data['logo'] =  DB::table('image_configurations')->get();
+        $data['logo'] = DB::table('image_configurations')->get();
         $data['content'] = view('website/carniva', $data);
         return view('website/main', $data);
     }
@@ -1042,4 +1066,5 @@ class HomeController extends Controller {
     public function product_sort($type, $id) {
         echo $type;
     }
+
 }

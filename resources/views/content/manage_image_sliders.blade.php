@@ -39,11 +39,6 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($all_sliders as $slider)
-                                    <?php
-                                    $file_parts = pathinfo($slider->featured_image);
-                                    $extension = $file_parts['extension'];
-                                    ?>
-                                    @if ($extension == 'jpg' || $extension == 'png')
                                     <tr>
                                         <td>
                                             <img class="img-thumbnail table-image" src="{{ URL::to('/uploads/thumbnails') }}{{'/'}}{{ $slider->featured_image }}" alt="{{ $slider->content_title }}" title="{{ $slider->content_title }}">
@@ -58,11 +53,10 @@
                                             @endif
                                         </td>
                                         <td>
-<!--                                            <a href="edit_slider/{{ $slider->content_id }}" class="btn btn-sm btn-outline-success" title="Edit"><i class="icon-pencil"></i></a>-->
+                                            <a href="edit_image_slider/{{ $slider->content_id }}" class="btn btn-sm btn-outline-success" title="Edit"><i class="icon-pencil"></i></a>
                                             <a href="javascript:;" data-id="{{ $slider->content_id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>
                                         </td>
                                     </tr>
-                                    @endif
                                     @endforeach
                                 </tbody>
                             </table>

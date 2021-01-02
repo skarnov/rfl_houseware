@@ -90,52 +90,56 @@ class StockController extends Controller {
                 ->update($data);
 
         if ($data['category_status'] == 'inactive') {
+            
             /* Inactive Subcategory */
-            $data = array();
-            $data['category_status'] = 'inactive';
-            $data['modify_time'] = current_time();
-            $data['modify_date'] = current_date();
-            $data['modified_by'] = Auth::user()->id;
+            $inactive_subcategory = array();
+            $inactive_subcategory['category_status'] = 'inactive';
+            $inactive_subcategory['modify_time'] = current_time();
+            $inactive_subcategory['modify_date'] = current_date();
+            $inactive_subcategory['modified_by'] = Auth::user()->id;
             DB::table('categories')
                     ->where('fk_category_id', $id)
-                    ->update($data);
+                    ->update($inactive_subcategory);
 
             /* Inactive Subcategory Item */
             $subcategory_id = DB::table('categories')->where('fk_category_id', $id)->first('category_id')->category_id;
 
-            $data = array();
-            $data['category_status'] = 'inactive';
-            $data['modify_time'] = current_time();
-            $data['modify_date'] = current_date();
-            $data['modified_by'] = Auth::user()->id;
+            $inactive_item = array();
+            $inactive_item['category_status'] = 'inactive';
+            $inactive_item['modify_time'] = current_time();
+            $inactive_item['modify_date'] = current_date();
+            $inactive_item['modified_by'] = Auth::user()->id;
 
             DB::table('categories')
                     ->where('fk_category_id', $subcategory_id)
-                    ->update($data);
-        } else if ($data['category_status'] == 'active') {
-            /* Inactive Subcategory */
-            $data = array();
-            $data['category_status'] = 'active';
-            $data['modify_time'] = current_time();
-            $data['modify_date'] = current_date();
-            $data['modified_by'] = Auth::user()->id;
-            DB::table('categories')
-                    ->where('fk_category_id', $id)
-                    ->update($data);
-
-            /* Inactive Subcategory Item */
-            $subcategory_id = DB::table('categories')->where('fk_category_id', $id)->first('category_id')->category_id;
-
-            $data = array();
-            $data['category_status'] = 'active';
-            $data['modify_time'] = current_time();
-            $data['modify_date'] = current_date();
-            $data['modified_by'] = Auth::user()->id;
-
-            DB::table('categories')
-                    ->where('fk_category_id', $subcategory_id)
-                    ->update($data);
+                    ->update($inactive_item);
+            
         }
+        
+//        else if ($data['category_status'] == 'active') {
+//            /* Inactive Subcategory */
+//            $inactive_subcategory = array();
+//            $inactive_subcategory['category_status'] = 'active';
+//            $inactive_subcategory['modify_time'] = current_time();
+//            $inactive_subcategory['modify_date'] = current_date();
+//            $inactive_subcategory['modified_by'] = Auth::user()->id;
+//            DB::table('categories')
+//                    ->where('fk_category_id', $id)
+//                    ->update($inactive_subcategory);
+//
+//            /* Inactive Subcategory Item */
+//            $subcategory_id = DB::table('categories')->where('fk_category_id', $id)->first('category_id')->category_id;
+//
+//            $inactive_item = array();
+//            $inactive_item['category_status'] = 'active';
+//            $inactive_item['modify_time'] = current_time();
+//            $inactive_item['modify_date'] = current_date();
+//            $inactive_item['modified_by'] = Auth::user()->id;
+//
+//            DB::table('categories')
+//                    ->where('fk_category_id', $subcategory_id)
+//                    ->update($inactive_item);
+//        }
 
         return redirect('manage_categories')->with('message', 'Category Updated!');
     }
@@ -152,27 +156,27 @@ class StockController extends Controller {
                 ->update($data);
 
         /* Inactive Subcategory */
-        $data = array();
-        $data['category_status'] = 'inactive';
-        $data['modify_time'] = current_time();
-        $data['modify_date'] = current_date();
-        $data['modified_by'] = Auth::user()->id;
+        $inactive_subcategory = array();
+        $inactive_subcategory['category_status'] = 'inactive';
+        $inactive_subcategory['modify_time'] = current_time();
+        $inactive_subcategory['modify_date'] = current_date();
+        $inactive_subcategory['modified_by'] = Auth::user()->id;
         DB::table('categories')
                 ->where('fk_category_id', $id)
-                ->update($data);
+                ->update($inactive_subcategory);
 
         /* Inactive Subcategory Item */
         $subcategory_id = DB::table('categories')->where('fk_category_id', $id)->first('category_id')->category_id;
 
-        $data = array();
-        $data['category_status'] = 'inactive';
-        $data['modify_time'] = current_time();
-        $data['modify_date'] = current_date();
-        $data['modified_by'] = Auth::user()->id;
+        $inactive_item = array();
+        $inactive_item['category_status'] = 'inactive';
+        $inactive_item['modify_time'] = current_time();
+        $inactive_item['modify_date'] = current_date();
+        $inactive_item['modified_by'] = Auth::user()->id;
 
         DB::table('categories')
                 ->where('fk_category_id', $subcategory_id)
-                ->update($data);
+                ->update($inactive_item);
 
         return redirect('manage_categories')->with('message', 'Category And Associate Suncategpory,Items Are Inactivate!');
     }
@@ -283,26 +287,28 @@ class StockController extends Controller {
 
         /* Inactive Subcategory Item */
         if ($data['category_status'] == 'inactive') {
-            $data = array();
-            $data['category_status'] = 'inactive';
-            $data['modify_time'] = current_time();
-            $data['modify_date'] = current_date();
-            $data['modified_by'] = Auth::user()->id;
+            $inactive_item = array();
+            $inactive_item['category_status'] = 'inactive';
+            $inactive_item['modify_time'] = current_time();
+            $inactive_item['modify_date'] = current_date();
+            $inactive_item['modified_by'] = Auth::user()->id;
 
             DB::table('categories')
                     ->where('fk_category_id', $id)
-                    ->update($data);
-        } else if ($data['category_status'] == 'active') {
-            $data = array();
-            $data['category_status'] = 'active';
-            $data['modify_time'] = current_time();
-            $data['modify_date'] = current_date();
-            $data['modified_by'] = Auth::user()->id;
-
-            DB::table('categories')
-                    ->where('fk_category_id', $id)
-                    ->update($data);
-        }
+                    ->update($inactive_item);
+        } 
+        
+//        else if ($data['category_status'] == 'active') {
+//            $inactive_item = array();
+//            $inactive_item['category_status'] = 'active';
+//            $inactive_item['modify_time'] = current_time();
+//            $inactive_item['modify_date'] = current_date();
+//            $inactive_item['modified_by'] = Auth::user()->id;
+//
+//            DB::table('categories')
+//                    ->where('fk_category_id', $id)
+//                    ->update($inactive_item);
+//        }
 
         return redirect('manage_subcategories')->with('message', 'Subcategory & Associate Items Are Updated!');
     }
@@ -321,12 +327,18 @@ class StockController extends Controller {
                 ->where('fk_category_id', $subcategory_id)
                 ->update($data);
 
-        /* Inactive Subcategory Item */
-        $data = array();
-        $data['category_status'] = 'inactive';
-        $data['modify_time'] = current_time();
-        $data['modify_date'] = current_date();
-        $data['modified_by'] = Auth::user()->id;
+         /* Inactive Subcategory Item */
+        if ($data['category_status'] == 'inactive') {
+            $inactive_item = array();
+            $inactive_item['category_status'] = 'inactive';
+            $inactive_item['modify_time'] = current_time();
+            $inactive_item['modify_date'] = current_date();
+            $inactive_item['modified_by'] = Auth::user()->id;
+
+            DB::table('categories')
+                    ->where('fk_category_id', $id)
+                    ->update($inactive_item);
+        } 
 
         DB::table('categories')
                 ->where('fk_category_id', $id)
@@ -388,18 +400,18 @@ class StockController extends Controller {
         echo view('stock/filter_item', $data);
     }
 
-    public function add_item() {
+    public function add_item() {  
         $all_subcategory = DB::table('categories AS L0')
                 ->leftJoin('categories AS L1', 'L0.category_id', '=', 'L1.fk_category_id')
                 ->leftJoin('categories AS L2', 'L1.category_id', '=', 'L2.fk_category_id')
                 ->leftJoin('categories AS L3', 'L2.category_id', '=', 'L3.fk_category_id')
                 ->where('L0.fk_category_id', 0)
-                ->where('L1.category_status', 'active')
                 ->whereNotNull('L1.category_name')
                 ->groupBy('L1.category_name')
-                ->orderBy('L1.category_id', 'DESC')
-                ->select('L1.category_id AS subcategory_id', 'L1.category_name AS subcategory_name')
+                ->orderBy('L1.category_serial', 'ASC')
+                ->select('L0.category_name AS category_name', 'L1.category_id AS subcategory_id', 'L1.category_name AS subcategory_name', 'L1.category_serial AS subcategory_serial', 'L1.category_status AS subcategory_status')
                 ->get();
+        
         $data = array();
         $data['title'] = 'Add Item';
         $data['product_count'] = $this->data['product_count'];
@@ -453,11 +465,10 @@ class StockController extends Controller {
                 ->leftJoin('categories AS L2', 'L1.category_id', '=', 'L2.fk_category_id')
                 ->leftJoin('categories AS L3', 'L2.category_id', '=', 'L3.fk_category_id')
                 ->where('L0.fk_category_id', 0)
-                ->where('L1.category_status', 'active')
                 ->whereNotNull('L1.category_name')
                 ->groupBy('L1.category_name')
-                ->orderBy('L1.category_id', 'DESC')
-                ->select('L1.category_id AS subcategory_id', 'L1.category_name AS subcategory_name')
+                ->orderBy('L1.category_serial', 'ASC')
+                ->select('L0.category_name AS category_name', 'L1.category_id AS subcategory_id', 'L1.category_name AS subcategory_name', 'L1.category_serial AS subcategory_serial', 'L1.category_status AS subcategory_status')
                 ->get();
 
         $data = array();

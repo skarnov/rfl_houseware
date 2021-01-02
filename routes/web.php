@@ -151,7 +151,9 @@ Route::get('/manage_image_sliders', 'ContentController@manage_image_sliders')->m
 Route::get('/add_slider', 'ContentController@add_slider')->middleware('auth');
 Route::post('/save_slider', 'ContentController@save_slider')->middleware('auth');
 Route::get('/edit_slider/{id}', 'ContentController@edit_slider')->middleware('auth');
+Route::get('/edit_image_slider/{id}', 'ContentController@edit_image_slider')->middleware('auth');
 Route::post('/update_slider', 'ContentController@update_slider')->middleware('auth');
+Route::post('/update_image_slider', 'ContentController@update_image_slider')->middleware('auth');
 Route::get('/delete_slider/{id}', 'ContentController@delete_slider')->middleware('auth');
 
 Route::get('/manage_blogs', 'BlogController@manage_blogs')->middleware('auth');

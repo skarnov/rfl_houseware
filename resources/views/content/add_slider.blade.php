@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Slider Image</label>
+                                        <label>Slider Image (1920x1080)</label>
                                         <input type="file" name="image" class="dropify">
                                     </div>
                                 </div>

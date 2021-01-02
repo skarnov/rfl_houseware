@@ -117,7 +117,7 @@ class SocialController extends Controller
      * @param  \App\social  $social
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, social $social)
+    public function update(Request $request)
     {
         request()->validate([
             'icon_class' => 'required',

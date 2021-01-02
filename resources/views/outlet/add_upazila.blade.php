@@ -62,8 +62,8 @@
     jQ.push(function () {
         /*Start Active Class*/
         $('#content').click();
-        $('#outletarea').addClass('active');
-        $('#add_upazila').addClass('active');
+        $('#outletArea').addClass('active');
+        $('#addUpazila').addClass('active');
         /*End Active Class*/
     });
 </script>

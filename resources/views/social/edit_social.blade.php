@@ -3,7 +3,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12">
-                    <h2 style="margin-bottom:10px !important;">Add Social</h2>
+                    <h2 style="margin-bottom:10px !important;">Edit Social</h2>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="card">
                     <div class="body">
                         
-                        <form id="basic-form" method="POST" action="{{ URL::to('/social_update/ ') }}">
+                        <form id="basic-form" action="{{ URL::to('/social_update') }}" method="post">
                             @csrf
                             <div class="row clearfix">
                                 <div class="col-md-6">
@@ -42,7 +42,7 @@
                              
                 
                                     <div class="form-group">
-                                        <button style="float:right" type="submit" class="btn btn-success"><i class="fa fa-save"></i> <span>Save & Submit</span></button>
+                                        <button style="float:right" type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <span>Update & Submit</span></button>
                                     </div>
                                 </div>
                             </div>

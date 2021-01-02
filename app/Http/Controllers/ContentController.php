@@ -556,7 +556,7 @@ class ContentController extends Controller {
     /* 002. Sliders */
 
     public function manage_sliders() {
-        $sliders = DB::table('contents')->where('content_slug', 'slider')->where('content_id', '33')->paginate(10);
+        $sliders = DB::table('contents')->where('content_slug', 'video-slider')->where('content_id', '33')->paginate(10);
         $data = array();
         $data['title'] = 'Slider Management';
         $data['product_count'] = $this->data['product_count'];
@@ -566,9 +566,9 @@ class ContentController extends Controller {
         $data['home'] = view('content/manage_sliders', $data);
         return view('admin/master', $data);
     }
-    
+
     public function manage_image_sliders() {
-        $sliders = DB::table('contents')->where('content_slug', 'slider')->paginate(10);
+        $sliders = DB::table('contents')->where('content_slug', 'slider')->paginate(10); 
         $data = array();
         $data['title'] = 'Slider Management';
         $data['product_count'] = $this->data['product_count'];
@@ -622,18 +622,83 @@ class ContentController extends Controller {
         return redirect('manage_image_sliders')->with('success', 'Slider Saved!');
     }
 
-    public function edit_slider($id) {
-        $slider_info = DB::table('contents')->where('content_slug', 'slider')->where('content_id', $id)->first();
+    public function edit_image_slider($id) {
         $data = array();
         $data['title'] = 'Edit Slider';
         $data['product_count'] = $this->data['product_count'];
         $data['categories_count'] = $this->data['categories_count'];
         $data['catalogs_count'] = $this->data['catalogs_count'];
+        $data['slider_info'] = DB::table('contents')->where('content_slug', 'slider')->where('content_id', $id)->first();
+        $data['home'] = view('content/edit_image_slider', $data);
+        return view('admin/master', $data);
+    }
+    
+    public function edit_slider($id) {
+        $slider_info = DB::table('contents')->where('content_slug', 'video-slider')->where('content_id', $id)->first();
+        $file_parts = pathinfo($slider_info->featured_image);
+        $extension = $file_parts['extension'];
+        if ($extension == 'jpg' || 'jpeg' || 'png' || 'jpg' || 'gif' || 'svg'):
+            $extension = 'image';
+        else:
+            $extension = 'video';
+        endif;
+        $data = array();
+        $data['title'] = 'Edit Slider';
+        $data['product_count'] = $this->data['product_count'];
+        $data['categories_count'] = $this->data['categories_count'];
+        $data['catalogs_count'] = $this->data['catalogs_count'];
+        $data['extension'] = $extension;
         $data['slider_info'] = $slider_info;
         $data['home'] = view('content/edit_slider', $data);
         return view('admin/master', $data);
     }
 
+    public function update_image_slider(Request $request) {
+        $data = array();
+        $data['additional_info'] = $request->input('name');
+        $data['content_description'] = $request->input('description');
+        $data['content_serial'] = $request->input('serial');
+        if ($request->hasFile('image')) {
+            /* Start Image Upload */
+            request()->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            $imageName = 'slider_thumbnail_' . time() . '.' . request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('uploads'), $imageName);
+            /* End Image Upload */
+            /* Start Image Thumbnail */
+            $imagePath = public_path('uploads/' . $imageName);
+            $img = Image::make($imagePath)->resize(200, 200, function($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save(public_path('uploads/thumbnails/' . $imageName));
+            /* End Image Thumbnail */
+            /* End Image Upload */
+            $data['featured_image'] = $imageName;
+
+            $path = public_path() . '/uploads/' . $request->input('previous_image');
+            if ($path) {
+                @unlink($path);
+            }
+
+            $path_thumbnails = public_path() . '/uploads/thumbnails/' . $request->input('previous_image');
+            if ($path_thumbnails) {
+                @unlink($path_thumbnails);
+            }
+        }
+        $data['external_link'] = $request->input('external_link');
+        $data['content_status'] = $request->input('status');
+        $data['modify_time'] = current_time();
+        $data['modify_date'] = current_date();
+        $data['modified_by'] = Auth::user()->id;
+
+        DB::table('contents')
+                ->where('content_id', $request->input('id'))
+                ->update($data);
+
+        return redirect('manage_image_sliders')->with('success', 'Slider Updated!');
+    }
+    
     public function update_slider(Request $request) {
         $data = array();
         $data['additional_info'] = $request->input('name');

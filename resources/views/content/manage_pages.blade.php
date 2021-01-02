@@ -41,7 +41,7 @@
                                         <td><span> {{ $page->page_name }}</span></td>
                                         <td>
                                             <a href="edit_page/{{ $page->page_id }}" class="btn btn-sm btn-outline-success" title="Edit"><i class="icon-pencil"></i></a>
-                                            <a href="javascript:;" data-id="{{ $page->page_id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>
+<!--                                            <a href="javascript:;" data-id="{{ $page->page_id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>-->
                                         </td>
                                     </tr>
                                     @endforeach

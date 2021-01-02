@@ -93,8 +93,8 @@
     jQ.push(function () {
         /*Start Active Class*/
         $('#content').click();
-        $('#outletarea').addClass('active');
-        $('#list_outlet').addClass('active');
+        $('#outletArea').addClass('active');
+        $('#listOutlet').addClass('active');
         /*End Active Class*/
     });
 </script>

@@ -39,10 +39,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    @if ($extension == 'video')
                                     <div class="form-group">
                                         <label>Serial</label>
                                         <input type="text" name="serial" value="{{ $slider_info->content_serial }}" class="form-control">
                                     </div>
+                                    @endif
                                     <video width="500" height="240" controls>
                                         <source src="{{ URL::to('/uploads/') }}{{'/'}}{{ $slider_info->featured_image }}" type="video/mp4">
                                     </video>
@@ -52,27 +54,31 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                    @if ($extension == 'video')
                                     <div class="form-group">
                                         <label>Slider Image</label>
                                         <input type="file" id="featuredImage" name="image" class="dropify">
                                     </div>
+                                    @endif
                                     <div class="form-group"> 
                                         <input type="hidden" name="id" value="{{ $slider_info->content_id }}">
                                         <input type="hidden" name="previous_image" value="{{ $slider_info->featured_image }}">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Slider Link</label>
-                                        <textarea name="external_link" class="form-control">{{ $slider_info->external_link }}</textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Album Status</label>
-                                        <select name="status" required class="form-control">
-                                            <option value="active" {{ $slider_info->content_status == 'active' ? 'selected' : '' }}>Active</option>
-                                            <option value="inactive" {{ $slider_info->content_status == 'inactive' ? 'selected' : '' }}>Inactive</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <button style="float:right" type="submit" class="btn btn-secondary"><i class="fa fa-save"></i> <span>Edit & Submit</span></button>
+                                    <div class="col-md-10 pull-right">
+                                        <div class="form-group">
+                                            <label>Slider Link</label>
+                                            <textarea name="external_link" class="form-control">{{ $slider_info->external_link }}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Album Status</label>
+                                            <select name="status" required class="form-control">
+                                                <option value="active" {{ $slider_info->content_status == 'active' ? 'selected' : '' }}>Active</option>
+                                                <option value="inactive" {{ $slider_info->content_status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <button style="float:right" type="submit" class="btn btn-secondary"><i class="fa fa-save"></i> <span>Edit & Submit</span></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

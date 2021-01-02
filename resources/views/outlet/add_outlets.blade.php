@@ -5,7 +5,7 @@
                 <div class="col-lg-6 col-md-8 col-sm-12">
                     <h2 style="margin-bottom:10px !important;">Add Outlets</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#" class="btn  btn-simple btn-sm btn-info btn-filter"><i class="fa fa-list-ul"></i><span>&nbsp;All Outlets</span></a></li>
+                        <li class="breadcrumb-item"><a href="{{ URL::to('/list_outlet') }}" class="btn  btn-simple btn-sm btn-info btn-filter"><i class="fa fa-list-ul"></i><span>&nbsp;All Outlets</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -24,7 +24,6 @@
                 @endif
                 <!-- End of Show Error -->
 
-
                 <div class="card">
                     <div class="body">
                         <form id="basic-form" method="POST" action="{{ URL::to('/save_outlet') }}">
@@ -33,7 +32,7 @@
                                 <div class="col-md-6">
                                 
                                     <div class="form-group">
-                                        <label>Add Outlets</label>
+                                        <label>Outlets name</label>
                                         <input type="text" name="name" required value="" class="form-control">
                                     </div>
 
@@ -49,7 +48,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Outlet</label>
+                                        <label>Outlet category</label>
                                         <select name="outlet_category" id="inputState" class="form-control">
                                             <option value="bestbuy">Best Buy</option>
                                             <option value="exclusive">Exclusive</option>
@@ -93,9 +92,9 @@
 <script>
     jQ.push(function () {
         /*Start Active Class*/
-        $('#product').addClass('active show');
-        $('#outletarea').addClass('active');
-        $('#add_outlets').addClass('active');
+        $('#content').click();
+        $('#outletArea').addClass('active');
+        $('#addOutlets').addClass('active');
         /*End Active Class*/
     });
 </script>

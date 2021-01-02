@@ -158,7 +158,7 @@
                                         <label>Product Attributes</label>
                                         <br />
                                         <label class="fancy-radio">
-                                            <input type="radio" name="attribute" checked value="new-arrival">
+                                            <input type="radio" name="attribute" value="new-arrival">
                                             <span><i></i>New Arrival</span>
                                         </label>
                                         <label class="fancy-radio">

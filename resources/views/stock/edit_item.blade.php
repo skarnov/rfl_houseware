@@ -31,7 +31,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Select Subcategory</label>
-                                        <select name="subcategory_id" class="form-control">
+                                        <select name="subcategory_id" required class="form-control">
                                             <option value="">Select One</option>
                                             @foreach ($all_subcategories as $category)
                                             {{$item_id = $item_info->fk_category_id}}

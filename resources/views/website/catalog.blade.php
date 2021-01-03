@@ -1,9 +1,14 @@
+<style>
+    .page-header {
+        background-image : url("{{ URL::to('/uploads/') }}{{'/'}}{{ $page_info->image }}");
+    }
+</style>
 <!-- page header start -->
 <section class="page-header">
     <div class="container">
         <div class="page-header-content">
             <h3>Catalog</h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <p>{{ $page_info->page_short_description }}</p>
         </div>
         <ul class="breadcrumb">
             <li><a href="{{ URL('/') }}">Home</a></li>

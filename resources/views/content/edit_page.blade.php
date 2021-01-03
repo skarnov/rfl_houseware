@@ -101,6 +101,21 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="card-title">
+                                            <h3>Catalog Area</h3>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Title</label>
+                                                    <input type="text" name="catalog_title" required value="{{ $catalog_info->page_title }}" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Short Description</label>
+                                                    <input type="text" name="catalog_description" required value="{{ $catalog_info->page_subtitle }}" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> <span>Update Home Page</span></button>
                                         </div>

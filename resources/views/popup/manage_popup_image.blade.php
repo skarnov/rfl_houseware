@@ -51,7 +51,7 @@
                                         </td>
                                         <td>
                                             <a href="edit_popup_image/{{ $album->id }}" class="btn btn-sm btn-outline-success" title="Edit"><i class="icon-pencil"></i></a>
-                                            <a href="javascript:;" data-id="{{ $album->id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>
+<!--                                            <a href="javascript:;" data-id="{{ $album->id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>-->
                                         </td>
                                     </tr>
                                     @endforeach

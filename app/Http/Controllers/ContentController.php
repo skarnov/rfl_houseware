@@ -68,7 +68,7 @@ class ContentController extends Controller {
         $data['create_date'] = current_date();
         $data['created_by'] = Auth::user()->id;
         DB::table('pages')->insert($data);
-        return redirect('content')->with('success', 'Page Saved!');
+        return redirect('add_page')->with('success', 'Page Saved!');
     }
 
     public function edit_page($id) {
@@ -84,6 +84,7 @@ class ContentController extends Controller {
             $data['page_attribute'] = DB::table('page_attribute')->where('fk_page_id', $id)->first();
             $data['product_section_one'] = DB::table('page_attribute')->where('attribute_name', 'product-section-one')->first();
             $data['product_section_two'] = DB::table('page_attribute')->where('attribute_name', 'product-section-two')->first();
+            $data['catalog_info'] = DB::table('page_attribute')->where('attribute_name', 'catalog-info')->first();
             $data['featured_sliders'] = $featured_sliders;
             $data['home_tab'] = DB::table('page_attribute')->where('attribute_name', 'home-tab')->get();
         endif;
@@ -146,6 +147,14 @@ class ContentController extends Controller {
         DB::table('page_attribute')
                 ->where('attribute_name', 'product-section-two')
                 ->update($product_section_two);
+        
+        $catalog = array();
+        $catalog['page_title'] = $request->input('catalog_title');
+        $catalog['page_subtitle'] = $request->input('catalog_description');
+
+        DB::table('page_attribute')
+                ->where('attribute_name', 'catalog-info')
+                ->update($catalog);
 
         return redirect('edit_page/' . $request->input('id'))->with('success', 'Page Updated!');
     }

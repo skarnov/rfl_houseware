@@ -145,7 +145,7 @@ class HomeController extends Controller {
                 products.product_attribute = 'new-arrival' AND
                 products.product_status = 'active' AND 
                 category.category_status = 'active'
-                ORDER BY products.product_id DESC LIMIT 24"));
+                ORDER BY products.product_id DESC LIMIT 8"));
 
         $awards = DB::table('contents')
                 ->orderBy('content_serial', 'ASC')
@@ -182,6 +182,7 @@ class HomeController extends Controller {
         $data['home_tab'] = DB::table('page_attribute')->where('attribute_name', 'home-tab')->get();
         $data['product_section_one'] = DB::table('page_attribute')->where('attribute_name', 'product-section-one')->first();
         $data['product_section_two'] = DB::table('page_attribute')->where('attribute_name', 'product-section-two')->first();
+        $data['catalog_info'] = DB::table('page_attribute')->where('attribute_name', 'catalog-info')->first();
         return view('website/home', $data);
     }
 
@@ -438,6 +439,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'blog')->first();
         $data['content'] = view('website/blog', $data);
         return view('website/main', $data);
     }
@@ -458,6 +460,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'blog')->first();
         $data['content'] = view('website/blog_details', $data);
         return view('website/main', $data);
     }
@@ -496,9 +499,9 @@ class HomeController extends Controller {
         $data['sitcky'] = $sitcky;
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
-        $data['page_info'] = DB::table('pages')->where('page_slug', 'our-brands')->first();
         $data['featured_image'] = DB::table('featured_slider')->where('pages', 'our-brands')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'our-brands')->first();
         $data['content'] = view('website/our_brands', $data);
         return view('website/main', $data);
     }
@@ -658,6 +661,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'terms-of-use')->first();
         $data['content'] = view('website/terms_of_use', $data);
         return view('website/main', $data);
     }
@@ -676,6 +680,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'privacy-policy')->first();
         $data['content'] = view('website/privacy_policy', $data);
         return view('website/main', $data);
     }
@@ -697,6 +702,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'catalog')->first();
         $data['content'] = view('website/catalog', $data);
         return view('website/main', $data);
     }
@@ -737,6 +743,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'news')->first();
         $data['content'] = view('website/news', $data);
         return view('website/main', $data);
     }
@@ -757,6 +764,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'news')->first();
         $data['content'] = view('website/news_details', $data);
         return view('website/main', $data);
     }
@@ -778,6 +786,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'event')->first();
         $data['content'] = view('website/event', $data);
         return view('website/main', $data);
     }
@@ -798,6 +807,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'event')->first();
         $data['content'] = view('website/event_details', $data);
         return view('website/main', $data);
     }
@@ -827,6 +837,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'image-gallery')->first();
         $data['content'] = view('website/photo_album', $data);
         return view('website/main', $data);
     }
@@ -853,8 +864,10 @@ class HomeController extends Controller {
         $data['image_album'] = $image_album;
         $data['image_gallery'] = $image_gallery;
         $data['sitcky'] = $sitcky;
+        $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'image-gallery')->first();
         $data['content'] = view('website/image_gallery', $data);
         return view('website/main', $data);
     }
@@ -884,6 +897,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'video-gallery')->first();
         $data['content'] = view('website/video_album', $data);
         return view('website/main', $data);
     }
@@ -915,6 +929,7 @@ class HomeController extends Controller {
         $data['address'] = Address::select('*')->get();
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'video-gallery')->first();
         $data['content'] = view('website/video_gallery', $data);
         return view('website/main', $data);
     }
@@ -935,6 +950,7 @@ class HomeController extends Controller {
         $data['social'] = Social::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
         $data['address'] = Address::select('*')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'sitemap')->first();
         $data['content'] = view('website/sitemap', $data);
         return view('website/main', $data);
     }
@@ -1021,6 +1037,7 @@ class HomeController extends Controller {
         $data['social'] = Social::select('*')->get();
         $data['address'] = Address::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'best-buy-outlets')->first();
         $data['content'] = view('website/bestbuy', $data);
         return view('website/main', $data);
     }
@@ -1040,6 +1057,7 @@ class HomeController extends Controller {
         $data['social'] = Social::select('*')->get();
         $data['address'] = Address::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'exclusive-outlets')->first();
         $data['content'] = view('website/exclusive', $data);
         return view('website/main', $data);
     }
@@ -1059,6 +1077,7 @@ class HomeController extends Controller {
         $data['social'] = Social::select('*')->get();
         $data['address'] = Address::select('*')->get();
         $data['logo'] = DB::table('image_configurations')->get();
+        $data['page_info'] = DB::table('pages')->where('page_slug', 'carniva-outlets')->first();
         $data['content'] = view('website/carniva', $data);
         return view('website/main', $data);
     }

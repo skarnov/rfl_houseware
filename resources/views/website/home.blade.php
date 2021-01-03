@@ -170,6 +170,7 @@
                 </div>
             </div>
         </div>
+
         <!-- mobile-menu-end -->
 
         <!-- header section start -->
@@ -321,7 +322,7 @@
         <!-- banner-section start -->
         @if (isset($all_sliders->content_slug) == 'video-slider')
         <section class="banner-slider">
-            <div id="rflSliderControl" class="carousel slide" data-ride="carousel">
+            <div class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="banner-section video-bg d-flex align-items-center">
@@ -481,7 +482,7 @@
                     <?php
                     foreach ($all_categories as $key => $category) {
                         ?>
-                        <li class="javascript:;" id="cat-<?php echo $category->category_id ?>" onclick="productAndCategory(<?php echo $category->category_id ?>);"><?php echo $category->category_name ?></li>
+                        <li class="productFilterArea" id="cat-<?php echo $category->category_id ?>" onclick="productAndCategory(<?php echo $category->category_id ?>);"><?php echo $category->category_name ?></li>
                         <?php
                     }
                     ?>
@@ -524,8 +525,8 @@
         <!-- download catalogue-section start -->
         <section class="download-catalogue-section pt--90 pb--90">
             <div class="dcs-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
-                <p>consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+                <h4>{{ $catalog_info->page_title }}</h4>
+                <p>{{ $catalog_info->page_subtitle }}</p>
                 <a href="{{ URL('/catalog') }}" class="dcs-btn">Download Catalogue</a>
             </div>
         </section>
@@ -554,6 +555,7 @@
                         </div>
                     </div>
                     @endforeach
+
                     <div class="col-12 text-center pt--10 pt_lg--60">
                         <a href="{{ $product_section_two->featured_image }}" class="view-more">View More</a>
                     </div>
@@ -645,7 +647,7 @@
                                         <?php
                                         foreach ($all_categories as $key => $category) {
                                             ?>
-                                            <li><a href="{{ URL('/category_listing/') }}/<?php echo $category->category_name ?>" id="<?php echo $category->category_name ?>" class="text-capitalize"><?php echo $category->category_name ?></a></li>
+                                            <li><a href="{{ URL('/category_listing/') }}/<?php echo strtolower($category->category_name) ?>" id="<?php echo strtolower($category->category_name) ?>" class="text-capitalize"><?php echo $category->category_name ?></a></li>
                                             <?php
                                         }
                                         ?>
@@ -665,6 +667,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-lg-3">
                             <div class="footer-widget">
                                 <h6 class="widget-title">Quick Links</h6>
@@ -735,7 +738,7 @@
             }
 
             function productAndCategory(iD) {
-                $(".active").removeClass('active');
+                $('.productFilterArea').removeClass('active');
                 $("#cat-" + iD).addClass('active');
 
                 $.ajax({

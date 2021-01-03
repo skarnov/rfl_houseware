@@ -43,7 +43,7 @@
                 </div>
                 <div class="mobile-menu">
                     <ul class="nav-menu d-lg-flex flex-wrap list-unstyled mr_lg--20  mb-0 justify-content-center">
-                        <li class="nav-item active"><a href="{{ URL('/') }}">Home</a></li>
+                        <li class="nav-item"><a href="{{ URL('/') }}">Home</a></li>
                         <li class="nav-item mobile-dropdown"><a href="javascript:;">About</a>
                             <ul class="mobile-submenu">
                                 <li><a href="{{ URL('/about') }}">About Us</a></li>
@@ -95,7 +95,7 @@
                             }
                             ?>
                         </li>
-                        <li class="nav-item"><a href="{{ URL('/sustainability') }}">Sustainability</a></li>
+                        <li class="nav-item active"><a href="{{ URL('/sustainability') }}">Sustainability</a></li>
                         <li class="nav-item mobile-dropdown"><a href="javascript:;">Media</a>
                             <ul class="mobile-submenu">
                                 <li><a href="{{ URL('/news') }}">News</a></li>
@@ -227,7 +227,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="nav-item" id="sustainability"><a href="{{ URL('/sustainability') }}">Sustainability</a></li>
+                                <li class="nav-item active" id="sustainability"><a href="{{ URL('/sustainability') }}">Sustainability</a></li>
                                 <li class="nav-item dropdown" id="media_center"><a href="javascript:;">Media<i class="fas fa-caret-down"></i></a>
                                     <ul class="submenu list-unstyled pl-0 mb-0">
                                         <li><a href="{{ URL('/news') }}">News</a></li>
@@ -538,9 +538,13 @@
                                 <h6 class="widget-title">Products</h6>
                                 <div class="widge-wrapper">
                                     <ul class="widget-links list-unstyled pl-0">
-                                        <li><a href="{{ URL('/category_listing/') }}/household" id="households">Households</a></li>
-                                        <li><a href="{{ URL('/category_listing/') }}/furniture" id="furniture">Furniture</a></li>
-                                        <li><a href="{{ URL('/category_listing/') }}/industrial" id="industrial">Industrial</a></li>
+                                        <?php
+                                        foreach ($all_categories as $key => $category) {
+                                            ?>
+                                            <li><a href="{{ URL('/category_listing/') }}/<?php echo strtolower($category->category_name) ?>" id="<?php echo strtolower($category->category_name) ?>" class="text-capitalize"><?php echo $category->category_name ?></a></li>
+                                            <?php
+                                        }
+                                        ?>
                                     </ul>
                                 </div>
                             </div>

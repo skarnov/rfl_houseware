@@ -171,13 +171,13 @@
                                             <li id="addAward"><a href="{{ URL::to('/add_award') }}">Add Award</a></li>
                                         </ul>
                                     </li>
-                                    <li id="offerArea">
+<!--                                    <li id="offerArea">
                                         <a href="javascrpt:;" class="has-arrow"><i class="icon-volume-2"></i><span>Manage Offer</span></a>
                                         <ul>
                                             <li id="offerList"><a href="{{ URL::to('/manage_offers') }}">Offer List</a></li>
                                             <li id="addOffer"><a href="{{ URL::to('/add_offer') }}">Add Offer</a></li>
                                         </ul>
-                                    </li>
+                                    </li>-->
                                     <li id="sliderArea">
                                         <a href="javascrpt:;" class="has-arrow"><i class="icon-star"></i><span>Manage Slider</span></a>
                                         <ul>
@@ -224,7 +224,7 @@
                                     <li id="popup">
                                         <a href="javascrpt:;" class="has-arrow"><i class="icon-briefcase"></i><span>Popup Image</span></a>
                                         <ul>
-                                            <li id="add_popup"><a href="{{ URL::to('/edit_popup_image/4') }}">Edit Popup Image</a></li>
+<!--                                            <li id="add_popup"><a href="{{ URL::to('/edit_popup_image/4') }}">Edit Popup Image</a></li>-->
                                             <li id="list_popup"><a href="{{ URL::to('/manage_popup_image') }}">List Popup Image</a></li>
                                         </ul>
                                     </li> 

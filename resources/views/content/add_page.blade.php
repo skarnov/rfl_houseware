@@ -5,7 +5,7 @@
                 <div class="col-lg-6 col-md-8 col-sm-12">
                     <h2 style="margin-bottom:10px !important;">Add New Page</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ URL::to('/content') }}" class="btn  btn-simple btn-sm btn-info btn-filter"><i class="fa fa-list-ul"></i><span>&nbsp;All Pages</span></a></li>
+                        <li class="breadcrumb-item"><a href="{{ URL::to('/manage_inner_pages') }}" class="btn  btn-simple btn-sm btn-info btn-filter"><i class="fa fa-list-ul"></i><span>&nbsp;All Pages</span></a></li>
                     </ul>
                 </div>
             </div>

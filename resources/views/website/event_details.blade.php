@@ -1,6 +1,15 @@
+<style>
+    .page-header {
+        background-image : url("{{ URL::to('/uploads/') }}{{'/'}}{{ $page_info->image }}");
+    }
+</style>
 <!-- page header start -->
-<section class="page-header style2">
+<section class="page-header">
     <div class="container">
+        <div class="page-header-content">
+            <h3>Events</h3>
+            <p>{{ $page_info->page_short_description }}</p>
+        </div>
         <ul class="breadcrumb">
             <li><a href="{{ URL('/') }}">Home</a></li>
             <li><a href="{{ URL('/event') }}">Events</a></li>

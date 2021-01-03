@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 25, 2020 at 07:54 AM
+-- Generation Time: Jan 03, 2021 at 01:59 PM
 -- Server version: 5.6.41-84.1
 -- PHP Version: 7.3.6
 
@@ -75,16 +75,16 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `fk_category_id`, `category_serial`, `category_name`, `category_image`, `url_slug`, `category_status`, `subnews`, `create_time`, `create_date`, `created_by`, `modify_time`, `modify_date`, `modified_by`) VALUES
-(1, 0, 2, 'Household', NULL, 'household', 'active', NULL, '06:02:19', '2020-06-16', 1, '07:33:56', '2020-11-24', 6),
-(2, 0, 2, 'Furniture', NULL, 'furniture', 'active', NULL, '06:03:40', '2020-06-16', 1, '11:36:56', '2020-11-24', 6),
+(1, 0, 1, 'Household', NULL, 'household', 'active', NULL, '06:02:19', '2020-06-16', 1, '15:34:46', '2021-01-02', 6),
+(2, 0, 2, 'Furniture', NULL, 'furniture', 'active', NULL, '06:03:40', '2020-06-16', 1, '14:07:54', '2021-01-02', 6),
 (3, 0, 3, 'Industrial', NULL, 'industrial', 'active', NULL, '06:03:52', '2020-06-16', 1, NULL, NULL, NULL),
-(4, 0, 4, 'Toys', NULL, 'toys', 'active', NULL, '06:05:24', '2020-06-16', 1, NULL, NULL, NULL),
+(4, 0, 4, 'Toys', NULL, 'toys', 'active', NULL, '06:05:24', '2020-06-16', 1, '13:27:52', '2021-01-03', 6),
 (5, 0, 5, 'Pet Items', NULL, 'pet-items', 'active', NULL, '06:05:51', '2020-06-16', 1, '00:44:54', '2020-06-27', 6),
-(6, NULL, 1, 'BABY CARE', NULL, 'baby-care', 'inactive', NULL, '06:14:29', '2020-06-16', 1, '07:33:13', '2020-11-24', 6),
-(9, 6, 2, 'Baby Chair', NULL, 'baby-chair', 'inactive', NULL, '06:21:05', '2020-06-16', 1, '07:26:59', '2020-11-24', 6),
-(10, 6, 3, 'Bath Tub', NULL, 'bath-tub', 'inactive', NULL, '06:21:26', '2020-06-16', 1, '07:26:59', '2020-11-24', 6),
-(12, NULL, 2, 'BASKET & BIN', NULL, 'basket-bin', 'active', NULL, '07:24:28', '2020-06-16', 1, '07:29:27', '2020-11-24', 6),
-(13, 1, 5, 'CONTAINER', NULL, 'container', 'inactive', NULL, '07:25:04', '2020-06-16', 1, '07:26:59', '2020-11-24', 6),
+(6, 1, 1, 'BABY CARE', NULL, 'baby-care', 'active', NULL, '06:14:29', '2020-06-16', 1, '15:50:07', '2021-01-02', 6),
+(9, 6, 2, 'Baby Chair', NULL, 'baby-chair', 'inactive', NULL, '06:21:05', '2020-06-16', 1, '14:18:33', '2021-01-02', 6),
+(10, 6, 3, 'Bath Tub', NULL, 'bath-tub', 'inactive', NULL, '06:21:26', '2020-06-16', 1, '14:18:33', '2021-01-02', 6),
+(12, 1, 2, 'BASKET & BIN', NULL, 'basket-bin', 'inactive', NULL, '07:24:28', '2020-06-16', 1, '14:18:33', '2021-01-02', 6),
+(13, 1, 5, 'CONTAINER', NULL, 'container', 'inactive', NULL, '07:25:04', '2020-06-16', 1, '14:18:33', '2021-01-02', 6),
 (18, 8, 1, 'Drinking Mug', NULL, 'drinking-mug', 'active', NULL, '07:50:02', '2020-06-16', 1, NULL, NULL, NULL),
 (19, 8, 3, 'Washing Mug', NULL, 'washing-mug', 'active', NULL, '07:50:26', '2020-06-16', 1, NULL, NULL, NULL),
 (20, 12, 1, 'Laundry', NULL, 'laundry', 'active', NULL, '07:51:43', '2020-06-16', 1, '08:43:03', '2020-11-01', 6),
@@ -94,40 +94,40 @@ INSERT INTO `categories` (`category_id`, `fk_category_id`, `category_serial`, `c
 (24, 12, 5, 'Wastage Bin', NULL, 'wastage-bin', 'active', NULL, '07:53:35', '2020-06-16', 1, '08:42:35', '2020-11-01', 6),
 (26, 13, 1, 'Food Container', 'category_thumbnail_1603269811.jpg', 'food-container', 'active', NULL, '08:02:03', '2020-06-16', 1, '08:49:18', '2020-11-01', 6),
 (28, 13, 2, 'Storage Container', 'category_thumbnail_1603279848.jpg', 'storage-container', 'active', NULL, '08:02:55', '2020-06-16', 1, '08:49:42', '2020-11-01', 6),
-(29, 31, 2, 'Closet', 'category_thumbnail_1594119654.jpg', 'closet', 'active', NULL, '08:04:00', '2020-06-16', 1, '11:36:56', '2020-11-24', 6),
-(30, NULL, 1, 'CHAIR', NULL, 'chair', 'active', NULL, '00:47:48', '2020-06-27', 6, '11:36:22', '2020-11-24', 6),
-(31, 2, 2, 'STORAGE SOLOUTION', NULL, 'storage-soloution', 'active', NULL, '00:48:10', '2020-06-27', 6, '11:36:56', '2020-11-24', 6),
-(32, 2, 3, 'TABLE', NULL, 'table', 'active', NULL, '00:48:30', '2020-06-27', 6, '11:36:56', '2020-11-24', 6),
-(33, 2, 4, 'KITCHENETTE', NULL, 'kitchenette', 'active', NULL, '00:48:55', '2020-06-27', 6, '11:36:56', '2020-11-24', 6),
-(34, 2, 5, 'SOFA', NULL, 'sofa', 'active', NULL, '00:49:38', '2020-06-27', 6, '11:36:56', '2020-11-24', 6),
-(35, 30, 1, 'Arm', NULL, 'arm', 'active', NULL, '00:50:41', '2020-06-27', 6, '11:36:22', '2020-11-24', 6),
-(36, 30, 2, 'Armless', NULL, 'armless', 'active', NULL, '00:51:15', '2020-06-27', 6, '11:36:22', '2020-11-24', 6),
-(39, 1, 14, 'Kitchenware', NULL, 'kitchenware', 'inactive', NULL, '03:35:29', '2020-10-19', 6, '07:26:59', '2020-11-24', 6),
-(40, 1, 10, 'Tableware', NULL, 'tableware', 'inactive', NULL, '03:36:29', '2020-10-19', 6, '07:26:59', '2020-11-24', 6),
+(29, 31, 2, 'Closet', 'category_thumbnail_1594119654.jpg', 'closet', 'inactive', NULL, '08:04:00', '2020-06-16', 1, '05:37:44', '2021-01-02', 6),
+(30, 2, 1, 'CHAIR', NULL, 'chair', 'active', NULL, '00:47:48', '2020-06-27', 6, NULL, NULL, NULL),
+(31, 2, 2, 'STORAGE SOLOUTION', NULL, 'storage-soloution', 'inactive', NULL, '00:48:10', '2020-06-27', 6, '05:37:44', '2021-01-02', 6),
+(32, 2, 3, 'TABLE', NULL, 'table', 'active', NULL, '00:48:30', '2020-06-27', 6, NULL, NULL, NULL),
+(33, 2, 4, 'KITCHENETTE', NULL, 'kitchenette', 'active', NULL, '00:48:55', '2020-06-27', 6, NULL, NULL, NULL),
+(34, 2, 5, 'SOFA', NULL, 'sofa', 'active', NULL, '00:49:38', '2020-06-27', 6, NULL, NULL, NULL),
+(35, 30, 1, 'Arm Chair', NULL, 'arm-chair', 'active', NULL, '00:50:41', '2020-06-27', 6, '08:55:22', '2020-12-19', 6),
+(36, 30, 2, 'Armless Chair', NULL, 'armless-chair', 'active', NULL, '00:51:15', '2020-06-27', 6, '08:56:04', '2020-12-19', 6),
+(39, 1, 14, 'Kitchenware', NULL, 'kitchenware', 'inactive', NULL, '03:35:29', '2020-10-19', 6, '14:18:33', '2021-01-02', 6),
+(40, 1, 10, 'Tableware', NULL, 'tableware', 'inactive', NULL, '03:36:29', '2020-10-19', 6, '14:18:33', '2021-01-02', 6),
 (41, 40, 3, 'Serving Bowl', NULL, 'serving-bowl', 'active', NULL, '10:04:50', '2020-10-19', 6, '08:55:36', '2020-11-02', 6),
 (42, 40, 8, 'Pen Holder', NULL, 'pen-holder', 'active', NULL, '10:54:03', '2020-10-19', 6, '09:03:20', '2020-11-02', 6),
 (43, 40, 7, 'Glass Stand', NULL, 'glass-stand', 'active', NULL, '11:11:45', '2020-10-19', 6, '09:02:57', '2020-11-02', 6),
 (44, 40, 1, 'Miscellaneous', NULL, 'miscellaneous', 'active', NULL, '11:17:17', '2020-10-19', 6, NULL, NULL, NULL),
-(51, NULL, 1, 'Toys\'', NULL, 'toys', 'active', NULL, '09:56:53', '2020-10-31', 6, NULL, NULL, NULL),
-(52, NULL, 1, 'Toy', NULL, 'toy', 'active', NULL, '09:58:43', '2020-10-31', 6, NULL, NULL, NULL),
-(53, 4, 1, 'All Toys', NULL, 'all-toys', 'active', NULL, '10:09:13', '2020-10-31', 6, NULL, NULL, NULL),
-(54, 53, 1, '1 Year +', NULL, '1-year', 'active', NULL, '10:10:24', '2020-10-31', 6, '10:12:36', '2020-10-31', 6),
-(55, 53, 2, '2 Year +', NULL, '2-year', 'active', NULL, '10:11:11', '2020-10-31', 6, '10:12:45', '2020-10-31', 6),
-(56, 53, 3, '3 Year +', NULL, '3-year', 'active', NULL, '10:11:34', '2020-10-31', 6, '10:12:54', '2020-10-31', 6),
-(57, 5, 1, 'Pet Supplies', NULL, 'pet-supplies', 'active', NULL, '10:14:05', '2020-10-31', 6, NULL, NULL, NULL),
+(51, 0, 1, 'Toys\'', NULL, 'toys', 'inactive', NULL, '09:56:53', '2020-10-31', 6, '05:25:05', '2021-01-02', 6),
+(52, 0, 1, 'Toy', NULL, 'toy', 'inactive', NULL, '09:58:43', '2020-10-31', 6, '05:26:10', '2021-01-02', 6),
+(53, 4, 1, 'All Toys for boy', NULL, 'all-toys-for-boy', 'inactive', NULL, '10:09:13', '2020-10-31', 6, '06:45:59', '2021-01-03', 6),
+(54, 53, 1, '1 Year +', NULL, '1-year', 'inactive', NULL, '10:10:24', '2020-10-31', 6, '06:45:59', '2021-01-03', 6),
+(55, 53, 2, '2 Year +', NULL, '2-year', 'inactive', NULL, '10:11:11', '2020-10-31', 6, '06:45:59', '2021-01-03', 6),
+(56, 53, 3, '3 Year +', NULL, '3-year', 'inactive', NULL, '10:11:34', '2020-10-31', 6, '06:45:59', '2021-01-03', 6),
+(57, 5, 1, 'Pet Supplies', NULL, 'pet-supplies', 'active', NULL, '10:14:05', '2020-10-31', 6, '14:08:26', '2021-01-02', 6),
 (58, 57, 1, 'Feeding', NULL, 'feeding', 'active', NULL, '10:14:25', '2020-10-31', 6, NULL, NULL, NULL),
 (59, 57, 2, 'Mat', NULL, 'mat', 'active', NULL, '10:14:40', '2020-10-31', 6, '10:16:26', '2020-10-31', 6),
 (60, 57, 3, 'Scoop', NULL, 'scoop', 'active', NULL, '10:14:55', '2020-10-31', 6, '10:16:33', '2020-10-31', 6),
 (61, 57, 4, 'Waste Management', NULL, 'waste-management', 'active', NULL, '10:15:19', '2020-10-31', 6, NULL, NULL, NULL),
-(62, 3, 1, 'Agri Items', NULL, 'agri-items', 'active', NULL, '10:18:15', '2020-10-31', 6, '11:21:18', '2020-11-24', 6),
+(62, 3, 1, 'Agri Items', NULL, 'agri-items', 'active', NULL, '10:18:15', '2020-10-31', 6, NULL, NULL, NULL),
 (63, 3, 2, 'CRATE', NULL, 'crate', 'active', NULL, '10:18:28', '2020-10-31', 6, NULL, NULL, NULL),
 (64, 3, 3, 'PACKAGING SOLUTION', NULL, 'packaging-solution', 'active', NULL, '10:18:43', '2020-10-31', 6, NULL, NULL, NULL),
 (65, 3, 4, 'PALLET & FLOOR MAT', NULL, 'pallet-floor-mat', 'active', NULL, '10:18:59', '2020-10-31', 6, '10:19:26', '2020-10-31', 6),
 (66, 3, 5, 'PHARMACEUTICAL', NULL, 'pharmaceutical', 'active', NULL, '10:19:47', '2020-10-31', 6, NULL, NULL, NULL),
-(67, 62, 1, 'Dala Kula', NULL, 'dala-kula', 'active', NULL, '10:20:55', '2020-10-31', 6, '11:21:18', '2020-11-24', 6),
-(68, 62, 2, 'Chicken Cage', NULL, 'chicken-cage', 'active', NULL, '10:21:12', '2020-10-31', 6, '11:21:18', '2020-11-24', 6),
-(69, 62, 3, 'Gardening Tools', NULL, 'gardening-tools', 'active', NULL, '10:21:27', '2020-10-31', 6, '11:21:18', '2020-11-24', 6),
-(70, 62, 4, 'Poultry', NULL, 'poultry', 'active', NULL, '10:21:40', '2020-10-31', 6, '11:21:18', '2020-11-24', 6),
+(67, 62, 1, 'Dala Kula', NULL, 'dala-kula', 'active', NULL, '10:20:55', '2020-10-31', 6, NULL, NULL, NULL),
+(68, 62, 2, 'Chicken Cage', NULL, 'chicken-cage', 'active', NULL, '10:21:12', '2020-10-31', 6, NULL, NULL, NULL),
+(69, 62, 3, 'Gardening Tools', NULL, 'gardening-tools', 'active', NULL, '10:21:27', '2020-10-31', 6, NULL, NULL, NULL),
+(70, 62, 4, 'Poultry', NULL, 'poultry', 'active', NULL, '10:21:40', '2020-10-31', 6, NULL, NULL, NULL),
 (71, 63, 1, 'Fish Basket', NULL, 'fish-basket', 'active', NULL, '10:24:06', '2020-10-31', 6, NULL, NULL, NULL),
 (72, 63, 2, 'Fish Crate', NULL, 'fish-crate', 'active', NULL, '10:26:57', '2020-10-31', 6, NULL, NULL, NULL),
 (73, 63, 3, 'Glass Crate', NULL, 'glass-crate', 'active', NULL, '10:27:17', '2020-10-31', 6, NULL, NULL, NULL),
@@ -143,29 +143,29 @@ INSERT INTO `categories` (`category_id`, `fk_category_id`, `category_serial`, `c
 (83, 65, 2, 'Pallet', NULL, 'pallet', 'active', NULL, '10:33:23', '2020-10-31', 6, NULL, NULL, NULL),
 (84, 66, 1, 'Bed Pan', NULL, 'bed-pan', 'active', NULL, '10:42:35', '2020-10-31', 6, NULL, NULL, NULL),
 (85, 66, 2, 'Urinal Container', NULL, 'urinal-container', 'active', NULL, '10:42:51', '2020-10-31', 6, NULL, NULL, NULL),
-(86, 30, 3, 'Commode Chair', NULL, 'commode-chair', 'active', NULL, '11:00:26', '2020-10-31', 6, '11:36:22', '2020-11-24', 6),
-(87, 30, 4, 'Office Chair', NULL, 'office-chair', 'active', NULL, '03:52:13', '2020-11-01', 6, '11:36:22', '2020-11-24', 6),
-(88, 30, 5, 'Café Chair', NULL, 'caf-chair', 'active', NULL, '03:52:33', '2020-11-01', 6, '11:36:22', '2020-11-24', 6),
-(89, 31, 1, 'Almirah', NULL, 'almirah', 'active', NULL, '03:53:29', '2020-11-01', 6, '11:36:56', '2020-11-24', 6),
-(90, 31, 3, 'Cabinet', NULL, 'cabinet', 'active', NULL, '04:00:13', '2020-11-01', 6, '11:36:56', '2020-11-24', 6),
-(91, 31, 4, 'Wardrobe', NULL, 'wardrobe', 'active', NULL, '04:01:00', '2020-11-01', 6, '11:36:56', '2020-11-24', 6),
-(92, 31, 5, 'Kitchenshelf', NULL, 'kitchenshelf', 'active', NULL, '04:01:25', '2020-11-01', 6, '11:36:56', '2020-11-24', 6),
+(86, 30, 3, 'Commode Chair', NULL, 'commode-chair', 'active', NULL, '11:00:26', '2020-10-31', 6, NULL, NULL, NULL),
+(87, 30, 4, 'Office Chair', NULL, 'office-chair', 'active', NULL, '03:52:13', '2020-11-01', 6, NULL, NULL, NULL),
+(88, 30, 5, 'Café Chair', NULL, 'caf-chair', 'active', NULL, '03:52:33', '2020-11-01', 6, NULL, NULL, NULL),
+(89, 31, 1, 'Almirah', NULL, 'almirah', 'inactive', NULL, '03:53:29', '2020-11-01', 6, '05:37:44', '2021-01-02', 6),
+(90, 31, 3, 'Cabinet', NULL, 'cabinet', 'inactive', NULL, '04:00:13', '2020-11-01', 6, '05:37:44', '2021-01-02', 6),
+(91, 31, 4, 'Wardrobe', NULL, 'wardrobe', 'inactive', NULL, '04:01:00', '2020-11-01', 6, '05:37:44', '2021-01-02', 6),
+(92, 31, 5, 'Kitchenshelf', NULL, 'kitchenshelf', 'inactive', NULL, '04:01:25', '2020-11-01', 6, '05:37:44', '2021-01-02', 6),
 (93, 32, 1, 'Dining Table', NULL, 'dining-table', 'active', NULL, '04:01:57', '2020-11-01', 6, NULL, NULL, NULL),
-(94, 32, 2, 'Catering Table', NULL, 'catering-table', 'active', NULL, '04:02:25', '2020-11-01', 6, NULL, NULL, NULL),
-(95, 32, 3, 'Baby Table', NULL, 'baby-table', 'active', NULL, '04:02:46', '2020-11-01', 6, NULL, NULL, NULL),
+(94, 32, 3, 'Catering Table', NULL, 'catering-table', 'active', NULL, '04:02:25', '2020-11-01', 6, '09:09:47', '2020-12-19', 6),
+(95, 32, 4, 'Baby Table', NULL, 'baby-table', 'active', NULL, '04:02:46', '2020-11-01', 6, '09:06:55', '2020-12-19', 6),
 (96, 32, 4, 'Center Table', NULL, 'center-table', 'active', NULL, '04:03:02', '2020-11-01', 6, NULL, NULL, NULL),
-(97, 31, 1, 'All Sofa', NULL, 'all-sofa', 'active', NULL, '04:05:44', '2020-11-01', 6, '11:36:56', '2020-11-24', 6),
-(98, NULL, 3, 'Hanger & Clip', NULL, 'hanger-clip', 'active', NULL, '04:24:59', '2020-11-01', 6, '07:29:08', '2020-11-24', 6),
-(99, 1, 4, 'CLOCK', NULL, 'clock', 'inactive', NULL, '04:26:04', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(100, 1, 6, 'Cleaning Solutions', NULL, 'cleaning-solutions', 'inactive', NULL, '04:31:32', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(101, 1, 7, 'One Time Solutions', NULL, 'one-time-solutions', 'inactive', NULL, '04:32:00', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(102, 1, 8, 'Others', NULL, 'others', 'inactive', NULL, '04:32:21', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(103, 1, 9, 'Rack & Organizer', NULL, 'rack-organizer', 'inactive', NULL, '04:32:42', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(104, 1, 11, 'Meal Box', NULL, 'meal-box', 'inactive', NULL, '08:35:37', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(105, 1, 12, 'Stool', NULL, 'stool', 'inactive', NULL, '08:35:53', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(106, 1, 13, 'Drinking Bottles', NULL, 'drinking-bottles', 'inactive', NULL, '08:36:22', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(107, 6, 1, 'Baby Walker', NULL, 'baby-walker', 'inactive', NULL, '08:38:35', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
-(108, 6, 4, 'Baby Potty', NULL, 'baby-potty', 'inactive', NULL, '08:40:59', '2020-11-01', 6, '07:26:59', '2020-11-24', 6),
+(97, 34, 0, 'All Sofa', NULL, 'all-sofa', 'active', NULL, '04:05:44', '2020-11-01', 6, '09:11:38', '2020-12-19', 6),
+(98, 1, 3, 'Hanger & Clip', NULL, 'hanger-clip', 'inactive', NULL, '04:24:59', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(99, 1, 4, 'CLOCK', NULL, 'clock', 'inactive', NULL, '04:26:04', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(100, 1, 6, 'Cleaning Solutions', NULL, 'cleaning-solutions', 'inactive', NULL, '04:31:32', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(101, 1, 7, 'One Time Solutions', NULL, 'one-time-solutions', 'inactive', NULL, '04:32:00', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(102, 1, 8, 'Others', NULL, 'others', 'inactive', NULL, '04:32:21', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(103, 1, 9, 'Rack & Organizer', NULL, 'rack-organizer', 'active', NULL, '04:32:42', '2020-11-01', 6, '15:54:10', '2021-01-02', 6),
+(104, 1, 11, 'Meal Box', NULL, 'meal-box', 'inactive', NULL, '08:35:37', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(105, 1, 12, 'Stool', NULL, 'stool', 'inactive', NULL, '08:35:53', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(106, 1, 13, 'Drinking Bottles', NULL, 'drinking-bottles', 'inactive', NULL, '08:36:22', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(107, 6, 1, 'Baby Walker', NULL, 'baby-walker', 'inactive', NULL, '08:38:35', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
+(108, 6, 4, 'Baby Potty', NULL, 'baby-potty', 'inactive', NULL, '08:40:59', '2020-11-01', 6, '14:18:33', '2021-01-02', 6),
 (109, 98, 1, 'Hanger', NULL, 'hanger', 'active', NULL, '08:46:52', '2020-11-01', 6, NULL, NULL, NULL),
 (110, 98, 2, 'Clip', NULL, 'clip', 'active', NULL, '08:47:10', '2020-11-01', 6, NULL, NULL, NULL),
 (111, 99, 1, 'Table Clock', NULL, 'table-clock', 'active', NULL, '08:47:38', '2020-11-01', 6, NULL, NULL, NULL),
@@ -176,16 +176,16 @@ INSERT INTO `categories` (`category_id`, `fk_category_id`, `category_serial`, `c
 (116, 101, 3, 'Box', NULL, 'box', 'active', NULL, '08:33:25', '2020-11-02', 6, NULL, NULL, NULL),
 (117, 101, 4, 'Cutlery', NULL, 'cutlery', 'active', NULL, '08:33:47', '2020-11-02', 6, NULL, NULL, NULL),
 (118, 101, 5, 'Glass', NULL, 'glass', 'active', NULL, '08:34:09', '2020-11-02', 6, NULL, NULL, NULL),
-(119, 102, 1, 'Beauty Items', NULL, 'beauty-items', 'active', NULL, '08:38:49', '2020-11-02', 6, NULL, NULL, NULL),
+(119, 102, 1, 'Beauty Items', NULL, 'beauty-items', 'active', NULL, '08:38:49', '2020-11-02', 6, '14:09:02', '2021-01-02', 6),
 (120, 102, 2, 'Brush Holder', NULL, 'brush-holder', 'active', NULL, '08:39:06', '2020-11-02', 6, NULL, NULL, NULL),
 (121, 102, 3, 'Hand Fan', NULL, 'hand-fan', 'active', NULL, '08:39:25', '2020-11-02', 6, NULL, NULL, NULL),
 (122, 102, 4, 'Mosq Stand', NULL, 'mosq-stand', 'active', NULL, '08:39:44', '2020-11-02', 6, NULL, NULL, NULL),
 (123, 102, 5, 'Saving Items', NULL, 'saving-items', 'active', NULL, '08:40:03', '2020-11-02', 6, NULL, NULL, NULL),
-(124, 103, 1, 'Kitchen Rack', NULL, 'kitchen-rack', 'active', NULL, '08:40:37', '2020-11-02', 6, NULL, NULL, NULL),
-(125, 103, 2, 'Multipurpose Rack', NULL, 'multipurpose-rack', 'active', NULL, '08:40:51', '2020-11-02', 6, NULL, NULL, NULL),
-(126, 103, 3, 'Shoe Rack', NULL, 'shoe-rack', 'active', NULL, '08:41:08', '2020-11-02', 6, NULL, NULL, NULL),
-(127, 103, 4, 'Orgaizer', NULL, 'orgaizer', 'active', NULL, '08:41:47', '2020-11-02', 6, NULL, NULL, NULL),
-(128, 103, 5, 'Rehal', NULL, 'rehal', 'active', NULL, '08:47:20', '2020-11-02', 6, NULL, NULL, NULL),
+(124, 103, 1, 'Kitchen Rack', NULL, 'kitchen-rack', 'active', NULL, '08:40:37', '2020-11-02', 6, '05:35:47', '2021-01-02', 6),
+(125, 103, 2, 'Multipurpose Rack', NULL, 'multipurpose-rack', 'inactive', NULL, '08:40:51', '2020-11-02', 6, '05:27:38', '2021-01-02', 6),
+(126, 103, 3, 'Shoe Rack', NULL, 'shoe-rack', 'active', NULL, '08:41:08', '2020-11-02', 6, '05:33:38', '2021-01-02', 6),
+(127, 103, 4, 'Orgaizer', NULL, 'orgaizer', 'active', NULL, '08:41:47', '2020-11-02', 6, '05:33:22', '2021-01-02', 6),
+(128, 103, 5, 'Rehal', NULL, 'rehal', 'active', NULL, '08:47:20', '2020-11-02', 6, '05:33:09', '2021-01-02', 6),
 (129, 40, 1, 'Cutlery Items', NULL, 'cutlery-items', 'active', NULL, '08:54:29', '2020-11-02', 6, NULL, NULL, NULL),
 (130, 40, 2, 'Dinner Set', NULL, 'dinner-set', 'active', NULL, '08:54:46', '2020-11-02', 6, NULL, NULL, NULL),
 (131, 40, 4, 'Fruit Basket', NULL, 'fruit-basket', 'active', NULL, '08:55:58', '2020-11-02', 6, NULL, NULL, NULL),
@@ -194,9 +194,8 @@ INSERT INTO `categories` (`category_id`, `fk_category_id`, `category_serial`, `c
 (134, 105, 1, 'High Stool', NULL, 'high-stool', 'active', NULL, '09:17:13', '2020-11-02', 6, NULL, NULL, NULL),
 (135, 105, 2, 'Medium Stool', NULL, 'medium-stool', 'active', NULL, '09:17:33', '2020-11-02', 6, NULL, NULL, NULL),
 (136, 105, 3, 'Short Stool', NULL, 'short-stool', 'active', NULL, '09:17:51', '2020-11-02', 6, NULL, NULL, NULL),
-(137, 106, 1, 'Freezer Bottle', NULL, 'freezer-bottle', 'active', NULL, '09:19:20', '2020-11-02', 6, NULL, NULL, NULL),
-(138, 106, 2, 'Sports Bottle', NULL, 'sports-bottle', 'active', NULL, '09:19:38', '2020-11-02', 6, NULL, NULL, NULL),
-(139, 106, 3, 'Kid\'s Bottle', NULL, 'kid-s-bottle', 'active', NULL, '09:20:01', '2020-11-02', 6, NULL, NULL, NULL),
+(137, 106, 1, 'Freezer Bottle', NULL, 'freezer-bottle', 'inactive', NULL, '09:19:20', '2020-11-02', 6, '12:20:59', '2020-12-31', 7),
+(138, 106, 2, 'Sports Bottle', NULL, 'sports-bottle', 'inactive', NULL, '09:19:38', '2020-11-02', 6, '12:20:59', '2020-12-31', 7),
 (140, 39, 1, 'Washing Net', NULL, 'washing-net', 'active', NULL, '09:24:46', '2020-11-02', 6, NULL, NULL, NULL),
 (141, 39, 2, 'Chopping Board', NULL, 'chopping-board', 'active', NULL, '09:25:05', '2020-11-02', 6, NULL, NULL, NULL),
 (142, 39, 3, 'Jar', NULL, 'jar', 'active', NULL, '09:25:27', '2020-11-02', 6, NULL, NULL, NULL),
@@ -212,13 +211,17 @@ INSERT INTO `categories` (`category_id`, `fk_category_id`, `category_serial`, `c
 (152, 39, 13, 'Funnel', NULL, 'funnel', 'active', NULL, '09:29:17', '2020-11-02', 6, NULL, NULL, NULL),
 (153, 39, 14, 'Juicer', NULL, 'juicer', 'active', NULL, '09:29:31', '2020-11-02', 6, NULL, NULL, NULL),
 (154, 12, 1, 'Washing', NULL, 'washing', 'inactive', NULL, '11:45:00', '2020-11-02', 6, '11:45:43', '2020-11-02', 6),
-(155, 12, NULL, 'Cleaning Bucket', NULL, 'cleaning-bucket', 'active', NULL, '12:06:06', '2020-11-02', 6, NULL, NULL, NULL),
-(156, 0, 1, 'sometimes', NULL, 'sometimes', 'inactive', NULL, NULL, NULL, NULL, '07:25:55', '2020-11-24', 6),
-(157, 158, 1, 'TEST SUBCATEGORY', NULL, 'test-subcategory', 'active', NULL, '05:57:46', '2020-11-23', 6, '05:59:47', '2020-11-23', 6),
-(160, 159, NULL, 'TAST ITEM', 'category_thumbnail_1606111637.jpg', 'tast-item', 'active', '<p>some text here</p>', '06:04:07', '2020-11-23', 6, '06:07:17', '2020-11-23', 6),
-(161, 156, 1, 'sometimes subcategory', NULL, 'sometimes-subcategory', 'inactive', NULL, '11:47:28', '2020-11-23', 6, '07:25:55', '2020-11-24', 6),
-(162, 161, NULL, 'sometimes item', NULL, 'sometimes-item', 'inactive', NULL, '11:48:35', '2020-11-23', 6, '07:25:55', '2020-11-24', 6),
-(163, 156, 1, 'sometimes subcategory', NULL, 'sometimes-subcategory', 'inactive', NULL, '11:47:28', '2020-11-23', 6, '07:25:55', '2020-11-24', 6);
+(156, 100, 2, 'Scrubber', NULL, 'scrubber', 'active', NULL, '07:29:45', '2020-12-19', 6, NULL, NULL, NULL),
+(157, 100, 3, 'MOP', NULL, 'mop', 'active', NULL, '07:30:37', '2020-12-19', 6, NULL, NULL, NULL),
+(158, 100, 4, 'Washing Bowl', NULL, 'washing-bowl', 'active', NULL, '07:32:24', '2020-12-19', 6, NULL, NULL, NULL),
+(159, 100, 6, 'Foot Tray', NULL, 'foot-tray', 'active', NULL, '07:35:33', '2020-12-19', 6, NULL, NULL, NULL),
+(160, 100, 5, 'Water Pot', NULL, 'water-pot', 'active', NULL, '07:35:54', '2020-12-19', 6, NULL, NULL, NULL),
+(161, 65, NULL, 'Cleaning Bucket', NULL, 'cleaning-bucket', 'active', NULL, '12:14:52', '2020-12-31', 7, '12:21:28', '2020-12-31', 7),
+(162, 103, NULL, 'rack one', NULL, 'rack-one', 'active', NULL, '05:30:59', '2021-01-02', 6, NULL, NULL, NULL),
+(163, 103, NULL, 'rack two', NULL, 'rack-two', 'active', NULL, '05:31:17', '2021-01-02', 6, '15:54:45', '2021-01-02', 6),
+(164, 0, 6, 'category test', NULL, 'category-test', 'active', NULL, '06:51:01', '2021-01-03', 6, '10:38:01', '2021-01-03', 6),
+(165, 164, NULL, 'subcategory test 1', NULL, 'subcategory-test-1', 'active', NULL, '06:51:40', '2021-01-03', 6, '06:55:36', '2021-01-03', 6),
+(166, 165, NULL, 'item 1', 'category_thumbnail_1609656778.jpg', 'item-1', 'active', '<p>a large contributor in manufacturing and economic development of Bangladesh, displays admirable performance in the field of battle.</p>', '06:52:14', '2021-01-03', 6, '06:55:15', '2021-01-03', 6);
 
 -- --------------------------------------------------------
 
@@ -275,7 +278,8 @@ INSERT INTO `contact_mail` (`id`, `name`, `email`, `phone`, `message`, `created_
 (8, 'Tanjil', 'tanjilahmed87@gmail.com', '01931164546', 'Hello World!', '2020-09-10 00:10:46', '2020-09-10 00:10:46', NULL, NULL, NULL),
 (16, 'Bablu', 'bablu@gmail.com', '948483', 'test', '2020-11-08 03:13:20', '2020-11-08 03:13:20', 'Biswas', 17, 1),
 (17, 'Golam', 'mktg1152@gmail.com', '01992662814', 'test message', '2020-11-09 23:38:16', '2020-11-09 23:38:16', 'Mahiuddin', 17, 1),
-(18, 'Md', 'sharifulsajib2@gmail.com', '01782088923', 'dcdcd', '2020-11-24 11:43:54', '2020-11-24 11:43:54', 'Islam', 17, 1);
+(18, 'Md', 'sharifulsajib2@gmail.com', '01782088923', 'dcdcd', '2020-11-24 11:43:54', '2020-11-24 11:43:54', 'Islam', 17, 1),
+(19, 'Md', 'sharifulsajib2@gmail.com', '01782088923', 'hi', '2021-01-03 07:48:09', '2021-01-03 07:48:09', 'Islam', 17, 2);
 
 -- --------------------------------------------------------
 
@@ -309,11 +313,10 @@ CREATE TABLE `contents` (
 --
 
 INSERT INTO `contents` (`content_id`, `fk_content_id`, `content_slug`, `content_serial`, `content_title`, `content_subtitle`, `content_description`, `content_misc`, `additional_info`, `external_link`, `featured_image`, `content_status`, `create_time`, `create_date`, `created_by`, `modify_time`, `modify_date`, `modified_by`) VALUES
-(33, NULL, 'slider', NULL, NULL, NULL, '<div><font color=\"#ffffff\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo</font></div><div><font color=\"#ffffff\">ligula eget dolor. Aenean massa.&nbsp;</font></div>', NULL, '<h2>Quality is our trademark&nbsp;<br>Trust is what we build<br>Innovation is what sets us apart</h2>', 'http://beta.rflhouseware.com/item_listing/storage', 'slider_video_1597215413.home_video.mp4', 'active', '14:56:02', '2020-06-03', 1, '19:04:56', '2020-11-22', 6),
+(33, NULL, 'video-slider', NULL, NULL, NULL, '<div><font style=\"\" color=\"#f7f7f7\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo</font></div><div><font style=\"\" color=\"#f7f7f7\">ligula eget dolor. Aenean massa.&nbsp;</font></div>', NULL, '<h2>Quality is our trademark&nbsp;<br>Trust is what we build<br>Innovation is what sets us apart</h2>', 'https://www.google.com/', 'slider_video_1597215413.home_video.mp4', 'active', '14:56:02', '2020-06-03', 1, '13:26:34', '2021-01-03', 6),
 (41, NULL, 'featured-slider', 1, NULL, 'Household', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aeneamassa. Cum sociis natoque penatibus et', '<font face=\"Tahoma\">Frank Gehry</font>', '30', 'https://www.othoba.com/', 'image_1591272067.jpg', 'active', '12:01:07', '2020-06-04', 1, '12:00:11', '2020-11-18', 6),
 (42, NULL, 'featured-slider', 1, NULL, 'Household', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aeneamassa. Cum sociis natoque penatibus et', 'Barrel Baby Chair', 'Free', 'https://www.othoba.com/', 'image_1591272478.jpg', 'active', '12:07:58', '2020-06-04', 1, '10:30:57', '2020-06-21', 6),
 (43, NULL, 'featured-slider', 1, NULL, 'Furniture', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aeneamassa. Cum sociis natoque penatibus et', 'Frank Gehry', NULL, 'https://www.othoba.com/', 'image_1591273067.jpg', 'active', '12:17:47', '2020-06-04', 1, '10:31:15', '2020-06-21', 6),
-(44, NULL, 'award', 3, 'Award Name', NULL, NULL, NULL, NULL, NULL, 'award_thumbnail_1592148122.png', 'inactive', '15:22:03', '2020-06-14', 1, '09:28:07', '2020-07-07', 6),
 (45, NULL, 'award', 2, 'Konba', NULL, NULL, NULL, NULL, NULL, 'award_thumbnail_1592149025.png', 'active', '15:37:05', '2020-06-14', 1, NULL, NULL, NULL),
 (49, NULL, 'blog', 3, 'Marketing For RFL Plastic', NULL, '<p><img src=\"/photos/1/01.jpg\" alt=\"\" width=\"841\" height=\"311\" /></p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Claritas est etiam, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>\r\n<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Claritas est etiam, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>\r\n<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Claritas est etiam, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>\r\n<h2>Buam nunc putamus parum claram, anteposuerit litterarum</h2>\r\n<ul>\r\n<li>Arm</li>\r\n<li>Armless</li>\r\n<li>Baby</li>\r\n<li>Cane Chair</li>\r\n<li>Crystal Chair</li>\r\n<li>Ergonomic/ Metal Chair</li>\r\n<li>Transparent Chair</li>\r\n<li>Value Added Chair (Plastic &amp; Metal)</li>\r\n</ul>\r\n<p><iframe src=\"//www.youtube.com/embed/iNU_oKWmCi4\" width=\"560\" height=\"314\" allowfullscreen=\"allowfullscreen\"></iframe></p>\r\n<p>&nbsp;</p>', NULL, NULL, NULL, 'blog_thumbnail_1592306260.jpg', 'active', '11:02:01', '2020-06-16', 1, '06:25:55', '2020-07-07', 6),
 (50, NULL, 'blog', 2, 'Blog Title', NULL, '<p>Des</p>', NULL, NULL, NULL, 'blog_thumbnail_1592306060.jpg', 'active', '11:14:20', '2020-06-16', 1, '02:08:03', '2020-07-11', 6),
@@ -325,10 +328,10 @@ INSERT INTO `contents` (`content_id`, `fk_content_id`, `content_slug`, `content_
 (56, NULL, 'award', 9, 'award', NULL, NULL, NULL, NULL, NULL, 'award_thumbnail_1592487494.png', 'active', '13:38:14', '2020-06-18', 6, '13:38:26', '2020-06-18', 6),
 (57, NULL, 'featured-slider', 1, NULL, 'Industrial', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aeneamassa. Cum sociis natoque penatibus et', '<p>Frank Gehry<br></p>', NULL, 'http://beta.rflhouseware.com/', 'image_1592488623.jpg', 'active', '13:57:03', '2020-06-18', 6, NULL, NULL, NULL),
 (59, NULL, 'news', 2, 'The shift away from plastics is also part of a broader plan', NULL, '<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>', NULL, NULL, NULL, 'news_thumbnail_1594103868.png', 'active', '13:42:08', '2020-07-05', 1, '02:07:09', '2020-07-11', 6),
-(60, NULL, 'event', 1, 'RFL Group holds dealers’ conference for its 3 popular brands', NULL, '<p><strong>Event Date: 07/07/2020</strong></p>\r\n<p>RFL Group&rsquo;s popular housewares brand &lsquo;<strong>Tel Plastic&rsquo;</strong>, footwear brand &lsquo;Walkar&rsquo; and paints brand &lsquo;Rainbow&rsquo; organised dealers&rsquo; conference at RFL Industrial Park at Kaliganj in Gazipur.</p>\r\n<p>The programme was held on Friday, January 10, 2020, according to a press release of Pran-RFL Group.</p>\r\n<p><em>About 2,000 distributors of the brands&rsquo; products took part at the conference.</em></p>\r\n<p>Ahsan Khan Chowdhury, chairman and CEO of PRAN-RFL Group, RN Paul, managing director of RFL Group, Kamrul Hasan, COO of Tel Plastic, Walkar Footwear and Rainbow Paints, Fahim Hossain, assistant general manager, Bashir Uddin, deputy general manager (Sales) and Jahirul Islam, assistant general manager (Sales), among others, were also present at the event.</p>', NULL, NULL, NULL, 'event_thumbnail_1594104371.png', 'inactive', '13:43:01', '2020-07-05', 1, '16:44:53', '2020-07-11', 6),
+(60, NULL, 'event', 1, 'RFL Group holds dealers’ conference for its 3 popular brands', NULL, '<p><strong>Event Date: 07/07/2020</strong></p>\r\n<p>RFL Group&rsquo;s popular housewares brand &lsquo;<strong>Tel Plastic&rsquo;</strong>, footwear brand &lsquo;Walkar&rsquo; and paints brand &lsquo;Rainbow&rsquo; organised dealers&rsquo; conference at RFL Industrial Park at Kaliganj in Gazipur.</p>\r\n<p>The programme was held on Friday, January 10, 2020, according to a press release of Pran-RFL Group.</p>\r\n<p><em>About 2,000 distributors of the brands&rsquo; products took part at the conference.</em></p>\r\n<p>Ahsan Khan Chowdhury, chairman and CEO of PRAN-RFL Group, RN Paul, managing director of RFL Group, Kamrul Hasan, COO of Tel Plastic, Walkar Footwear and Rainbow Paints, Fahim Hossain, assistant general manager, Bashir Uddin, deputy general manager (Sales) and Jahirul Islam, assistant general manager (Sales), among others, were also present at the event.</p>', NULL, NULL, NULL, 'event_thumbnail_1594104371.png', 'active', '13:43:01', '2020-07-05', 1, '10:02:41', '2020-12-31', 7),
 (61, 0, 'image-album', 1, 'RFL EVENT', NULL, NULL, NULL, NULL, NULL, 'album_thumbnail_1594104860.png', 'active', '13:47:18', '2020-07-05', 1, '02:07:42', '2020-07-11', 6),
 (65, NULL, 'blog', 1, 'Plastic: WHO launches health review', NULL, '<p>The World Health Organization is to launch a review into the potential risks of plastic in drinking water.</p>\r\n<p>It will assess the latest research into the spread and impact of so-called microplastics - particles that are small enough to be ingested.</p>\r\n<p>It comes after journalism organisation Orb Media found plastic particles in many major brands of bottled water.</p>\r\n<p>There is no evidence that microplastics can undermine human health but the WHO wants to assess the state of knowledge.</p>\r\n<p>Plastic particles found in bottled water<br />Bruce Gordon, coordinator of the WHO&rsquo;s global work on water and sanitation, told BBC News that the key question was whether a lifetime of eating or drinking particles of plastic could have an effect.</p>\r\n<p>\"When we think about the composition of the plastic, whether there might be toxins in it, to what extent they might carry harmful constituents, what actually the particles might do in the body &ndash; there\'s just not the research there to tell us.</p>\r\n<p>\"We normally have a \'safe\' limit but to have a safe limit, to define that, we need to understand if these things are dangerous, and if they occur in water at concentrations that are dangerous.\"</p>\r\n<p>\'Shame and anger\' at plastic pollution<br />Earth is becoming \'Planet Plastic\'<br />Plastic pollution in seven charts<br />Mr Gordon said that he did not want to alarm anyone, and also emphasised that a far greater waterborne threat comes in countries where supplies can be contaminated with sewage.</p>\r\n<p>But he said he recognised that people hearing about the presence of microplastics in their drinking water would turn to the WHO for advice.</p>\r\n<p>\"The public are obviously going to be concerned about whether this is going to make them sick in the short term and the long term.\"</p>\r\n<p>The WHO initiative is partly in response to a study that screened more than 250 bottles of water from 11 different brands bought in nine countries - the largest investigation of its kind.</p>', NULL, NULL, NULL, 'blog_thumbnail_1594095916.jpg', 'active', '04:25:16', '2020-07-07', 6, '06:25:07', '2020-07-07', 6),
-(66, NULL, 'news', 1, 'Plastic bottles sales banned at San Francisco airport', NULL, '<p>San Francisco, Aug 3 (AP/UNB) &mdash; San Francisco International Airport is banning the sale of single-use plastic water bottles.</p>\r\n<p>The unprecedented move at one of the major airports in the country will take effect Aug. 20, the San Francisco Chronicle reported Friday.</p>\r\n<p>The new rule will apply to airport restaurants, cafes and vending machines. Travelers who need plain water will have to buy refillable aluminum or glass bottles if they don\'t bring their own.</p>\r\n<p>As a department of San Francisco\'s municipal government, the airport is following an ordinance approved in 2014 banning the sale of plastic water bottles on city-owned property.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>\r\n<p>San Francisco, Aug 3 (AP/UNB) &mdash; San Francisco International Airport is banning the sale of single-use plastic water bottles.</p>\r\n<p>The unprecedented move at one of the major airports in the country will take effect Aug. 20, the San Francisco Chronicle reported Friday.</p>\r\n<p>The new rule will apply to airport restaurants, cafes and vending machines. Travelers who need plain water will have to buy refillable aluminum or glass bottles if they don\'t bring their own.</p>\r\n<p>As a department of San Francisco\'s municipal government, the airport is following an ordinance approved in 2014 banning the sale of plastic water bottles on city-owned property.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>\r\n<p>San Francisco, Aug 3 (AP/UNB) &mdash; San Francisco International Airport is banning the sale of single-use plastic water bottles.</p>\r\n<p>The unprecedented move at one of the major airports in the country will take effect Aug. 20, the San Francisco Chronicle reported Friday.</p>\r\n<p>The new rule will apply to airport restaurants, cafes and vending machines. Travelers who need plain water will have to buy refillable aluminum or glass bottles if they don\'t bring their own.</p>\r\n<p>As a department of San Francisco\'s municipal government, the airport is following an ordinance approved in 2014 banning the sale of plastic water bottles on city-owned property.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>', NULL, NULL, NULL, 'news_thumbnail_1594103930.png', 'active', '06:30:50', '2020-07-07', 6, '06:38:50', '2020-07-07', 6),
+(66, NULL, 'news', 1, 'Plastic bottles sales banned at San Francisco airport', NULL, '<p>San Francisco, Aug 3 (AP/UNB) &mdash; San Francisco International Airport is banning the sale of single-use plastic water bottles.</p>\r\n<p>The unprecedented move at one of the major airports in the country will take effect Aug. 20, the San Francisco Chronicle reported Friday.</p>\r\n<p>The new rule will apply to airport restaurants, cafes and vending machines. Travelers who need plain water will have to buy refillable aluminum or glass bottles if they don\'t bring their own.</p>\r\n<p>As a department of San Francisco\'s municipal government, the airport is following an ordinance approved in 2014 banning the sale of plastic water bottles on city-owned property.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>\r\n<p>San Francisco, Aug 3 (AP/UNB) &mdash; San Francisco International Airport is banning the sale of single-use plastic water bottles.</p>\r\n<p>The unprecedented move at one of the major airports in the country will take effect Aug. 20, the San Francisco Chronicle reported Friday.</p>\r\n<p>The new rule will apply to airport restaurants, cafes and vending machines. Travelers who need plain water will have to buy refillable aluminum or glass bottles if they don\'t bring their own.</p>\r\n<p>As a department of San Francisco\'s municipal government, the airport is following an ordinance approved in 2014 banning the sale of plastic water bottles on city-owned property.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>\r\n<p>SFO vendors already are required to provide only compostable single-use foodware, including to-go containers, condiment packets, straws and utensils.</p>\r\n<p>Shops at the airports have adjusted easily to these requirements because of the increased availability of suppliers producing such products, said Michael Levine, CEO of the company that oversees Napa Farms Market, a store selling grab-and-go fare in Terminal 2 and International Terminal G.</p>\r\n<p>\"But the water bottle impact is a little trickier,\" he said.</p>\r\n<p>San Francisco, Aug 3 (AP/UNB) &mdash; San Francisco International Airport is banning the sale of single-use plastic water bottles.</p>\r\n<p>The unprecedented move at one of the major airports in the country will take effect Aug. 20, the San Francisco Chronicle reported Friday.</p>\r\n<p>The new rule will apply to airport restaurants, cafes and vending machines. Travelers who need plain water will have to buy refillable aluminum or glass bottles if they don\'t bring their own.</p>\r\n<p>As a department of San Francisco\'s municipal government, the airport is following an ordinance approved in 2014 banning the sale of plastic water bottles on city-owned property.</p>\r\n<p>The shift away from plastics is also part of a broader plan to slash net carbon emissions and energy use to zero and eliminate most landfill waste by 2021, said airport spokesman Doug Yakel.</p>\r\n<p>But, considering the approximately 4 million plastic water bottles sold per year at the airport, it may be more difficult for vendors to adhere to the water bottle ban.</p>\r\n<p>Whether vendors out of compliance will be penalized is unclear, but Yakel said the airport hopes that \"won\'t be necessary.\"</p>', NULL, NULL, NULL, 'news_thumbnail_1594103930.png', 'active', '06:30:50', '2020-07-07', 6, '09:29:17', '2020-12-31', 6),
 (67, NULL, 'event', 2, 'RFL Stationery holds dealer conference', NULL, '<p>RFL Stationery organized its dealers&rsquo; conference at RFL Conference Center at Patira of Khilkhet in Dhaka on Sunday.</p>\r\n<p>About 2000 distributors across the country, engaged to serve products under Good Luck, Italiano &amp; Winner brands of RFL Stationary, took part in the conference.</p>\r\n<p>Ahsan Khan Chowdhury, Chairman and CEO of PRAN-RFL Group, RN Paul, Managing Director of RFL, ASM Hasan Nasir, Executive Director of RFL Stationary and Fahim Hossain, Head of Marketing were present at the function.</p>', NULL, NULL, NULL, 'event_thumbnail_1594104465.png', 'active', '06:47:45', '2020-07-07', 6, NULL, NULL, NULL),
 (68, NULL, 'event', 1, 'Regal Furniture\'s dealer conference held', NULL, '<p>Regal Furniture, a sister concern of RFL, recently organized a dealer conference in Gazipur. Around 500 distributors from all over the country participated in the daylong conference.<br />The meeting was held at RFL Industrial Park at Kaliganj of the district. The event consisted of discussions on Regal Furniture, and its upcoming products.<br />Regal Furniture provided wood, metal and laminated board colorful furniture for the customers. Different kinds of household and office furniture including Bed, Sofa, Almirah, Wardrobe, Dressing Table, Chair, Shoe Rack, are available at Regal outlets in the country.<br />Addressing the program, R N Paul, director of RFL, emphasized to manufacture modern and quality products at reasonable price. He also discussed market strategies of Regal Furniture with the dealers in this meet up.<br />R N Paul expressed his hope to organize such a conference in every year. The distributors also thanked the management of Regal Furniture and urged the authority concern to remain focused on customer\'s creeds and colors.<br />Among others, Dilip Kumar Sutradhar, chief operating officer and MAM Muneem, head of marketing at Regal Furniture were present.</p>', NULL, NULL, NULL, 'event_thumbnail_1594104627.png', 'active', '06:50:28', '2020-07-07', 6, '02:07:21', '2020-07-11', 6),
 (69, 61, 'image', 1, 'Event', NULL, NULL, NULL, NULL, NULL, 'image_1594104958.png', 'active', '06:55:58', '2020-07-07', 6, NULL, NULL, NULL),
@@ -337,8 +340,18 @@ INSERT INTO `contents` (`content_id`, `fk_content_id`, `content_slug`, `content_
 (72, 71, 'video', 1, NULL, NULL, NULL, NULL, 'https://www.youtube.com/embed/aC1TgsW9DbM', NULL, 'video_thumbnail_1594105252.png', 'active', '07:00:52', '2020-07-07', 6, '07:03:03', '2020-07-07', 6),
 (73, 71, 'video', 1, NULL, NULL, NULL, NULL, 'https://www.youtube.com/embed/fIdWKZBxYj0', NULL, 'video_thumbnail_1594112307.png', 'active', '08:58:27', '2020-07-07', 6, NULL, NULL, NULL),
 (74, NULL, 'catalog', NULL, 'Home Furniture', NULL, NULL, NULL, 'catalog_1594115617.pdf', NULL, 'catalog_thumbnail_1594115617.jpg', 'active', '09:53:37', '2020-07-07', 6, NULL, NULL, NULL),
-(75, NULL, 'slider', 3, NULL, NULL, '<p>Slider Description</p>', NULL, '<p>Slider Title<br></p>', 'Slider Link', 'slider_thumbnail_1605935899.jpg', 'active', '05:18:20', '2020-11-21', 6, NULL, NULL, NULL),
-(76, NULL, 'featured-slider', 1, NULL, 'Household', 'some textsome textsome textsome textsome textsome textsome textsome textsome textsome textsome textsome text', '<p>some text</p>', NULL, 'http://beta.rflhouseware.com/', 'image_1606217627.png', 'active', '11:33:47', '2020-11-24', 6, NULL, NULL, NULL);
+(79, NULL, 'slider', 1, NULL, NULL, '<p><font color=\"#ffffff\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo<br>ligula eget dolor. Aenean massa.&nbsp;</font></p>', NULL, '<h2><font color=\"#ffffff\">Quality is our trademark&nbsp;<br>Trust is what we build<br>Innovation is what sets us apart</font></h2>', 'http://beta.rflhouseware.com/', 'slider_thumbnail_1609607057.jpg', 'active', '08:52:19', '2020-12-31', 6, '04:38:00', '2021-01-03', 6),
+(80, NULL, 'featured-slider', 1, NULL, 'Pet Items', '1', '<p>hi</p>', NULL, 'http://ibrataslocal/site/themes/public/default/css/style.css', 'image_1609405148.jpg', 'active', '08:59:08', '2020-12-31', 6, NULL, NULL, NULL),
+(81, NULL, 'news', 3, 'some text', NULL, '<p>Agri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening ToolsAgri Items Gardening Tools</p>', NULL, NULL, NULL, 'news_thumbnail_1609407055.jpg', 'active', '09:30:55', '2020-12-31', 6, NULL, NULL, NULL),
+(82, 61, 'image', 1, '2', NULL, NULL, NULL, NULL, NULL, 'image_1609410367.jpg', 'active', '10:05:36', '2020-12-31', 7, '10:26:07', '2020-12-31', 7),
+(83, 61, 'image', 1, 'a', NULL, NULL, NULL, NULL, NULL, 'image_1609409139.jpg', 'active', '10:05:39', '2020-12-31', 7, NULL, NULL, NULL),
+(86, 61, 'image', 1, 'L', NULL, NULL, NULL, NULL, NULL, 'image_1609410423.jpg', 'active', '10:27:03', '2020-12-31', 7, NULL, NULL, NULL),
+(87, 61, 'image', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'active', '10:27:10', '2020-12-31', 7, NULL, NULL, NULL),
+(88, 71, 'video', 1, NULL, NULL, NULL, NULL, 'https://www.youtube.com/embed/vcSAyrGzY5k', NULL, 'video_thumbnail_1609410528.jpg', 'active', '10:28:48', '2020-12-31', 7, NULL, NULL, NULL),
+(89, 0, 'video-album', 1, 'Md Sariful Islam', NULL, NULL, NULL, NULL, NULL, 'album_thumbnail_1609410617.jpg', 'active', '10:30:17', '2020-12-31', 7, NULL, NULL, NULL),
+(90, 89, 'video', 1, NULL, NULL, NULL, NULL, 'https://www.youtube.com/embed/vcSAyrGzY5k', NULL, 'video_thumbnail_1609410676.jpg', 'active', '10:31:16', '2020-12-31', 7, NULL, NULL, NULL),
+(91, NULL, 'award', NULL, 'abc', NULL, NULL, NULL, NULL, NULL, 'award_thumbnail_1609411095.jpg', 'active', '10:38:15', '2020-12-31', 7, NULL, NULL, NULL),
+(92, NULL, 'blog', NULL, 'Md Sariful Islam', NULL, '<p>db vz cv&nbsp;</p>', NULL, NULL, NULL, 'blog_thumbnail_1609413825.jpg', 'active', '11:23:45', '2020-12-31', 7, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -756,7 +769,7 @@ CREATE TABLE `featured_slider` (
 --
 
 INSERT INTO `featured_slider` (`id`, `title`, `featured_image`, `pages`, `status`, `create_time`, `create_date`, `created_by`) VALUES
-(1, 'Liva', 'featured_thumbnail_1599983084.png', 'our-brands', 'active', '07:44:44', '2020-09-12 18:00:00', 6),
+(1, 'Liva', 'featured_thumbnail_1609659691.jpg', 'partners', 'active', '07:41:40', '2021-01-03 00:00:00', 6),
 (2, 'Liva', 'featured_thumbnail_1599984139.png', 'partners', 'active', '08:02:19', '2020-09-12 18:00:00', 6),
 (3, 'Amara', 'featured_thumbnail_1599985170.png', 'our-brands', 'active', '08:19:30', '2020-09-12 18:00:00', 6),
 (4, 'Amara', 'featured_thumbnail_1599985185.png', 'partners', 'active', '08:19:45', '2020-09-12 18:00:00', 6),
@@ -780,8 +793,8 @@ CREATE TABLE `image_configurations` (
 --
 
 INSERT INTO `image_configurations` (`image_id`, `image_name`, `image_value`) VALUES
-(1, 'home-logo', '1606218563home-logo.png'),
-(2, 'inner-logo', '1606203529home-logo.jpg');
+(1, 'home-logo', '1609648734home-logo.png'),
+(2, 'inner-logo', '1609656998home-logo.png');
 
 -- --------------------------------------------------------
 
@@ -873,7 +886,8 @@ INSERT INTO `newsletters` (`newsletter_id`, `email`, `subscription_status`, `cre
 (4, 'admin@3-devs.com', 'active', '00:26:33', '2020-06-27', NULL, NULL, NULL),
 (5, 'info@3-devs.com', 'active', '00:41:51', '2020-06-27', NULL, NULL, NULL),
 (6, 'sharifulsajib2@gmail.com', 'active', '00:41:56', '2020-06-27', NULL, NULL, NULL),
-(7, 'sajibbv@3-devs.com', 'active', '05:59:50', '2020-07-26', NULL, NULL, NULL);
+(7, 'sajibbv@3-devs.com', 'active', '05:59:50', '2020-07-26', NULL, NULL, NULL),
+(8, 's@3-devs.com', 'active', '07:46:59', '2021-01-03', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -972,7 +986,9 @@ INSERT INTO `outlets` (`id`, `upazila_id`, `name`, `address`, `outlet_category`,
 (77, 2, 'Tasty Treat Banani', 'Tower Hamlet,16 Kamal Attaturk Avenue(Ground Floor) Banani, Dhaka-1209', NULL, '+8801313-071264', '23.7936444', '90.4037389', '2020-05-15 23:34:58', '2020-05-15 23:34:58'),
 (78, 2, 'Tasty Treat Tejgaon', 'New-79, Shaheed Tajuddin Ahmed Avenue, Tejgaon, Dhaka-1208', NULL, '+8801704133770', '23.7676756', '90.4011095', '2020-05-15 23:38:53', '2020-05-15 23:38:53'),
 (79, 48, 'Sylhet', 'Sylhet', NULL, '01931164546', '24.8997595', '91.8259623', '2020-07-25 10:41:37', '2020-07-25 10:41:37'),
-(80, 50, 'RFL Best Buy - Chawkbazar, Chittagong', 'Holding Number-103, Kapasgola Rd, Chattogram 4203', NULL, '01844605275', '22.358237', '91.838567', '2020-07-25 21:23:56', '2020-07-25 21:23:56');
+(80, 50, 'RFL Best Buy - Chawkbazar, Chittagong', 'Holding Number-103, Kapasgola Rd, Chattogram 4203', NULL, '01844605275', '22.358237', '91.838567', '2020-07-25 21:23:56', '2020-07-25 21:23:56'),
+(81, 2, 'some outlet', 'House:29, Road:09, Flat:5B, Sector:4 Uttara,', 'carniva', '01782088923', '23.8698457', '90.4413529', '2020-12-31 11:29:47', '2020-12-31 11:29:47'),
+(82, 2, 'a', 'House:29, Road:09, Flat:5B, Sector:4 Uttara,', 'carniva', '01782088923', '23.8698457', '90.4413529', '2021-01-03 06:57:43', '2021-01-03 06:57:43');
 
 -- --------------------------------------------------------
 
@@ -1003,10 +1019,10 @@ CREATE TABLE `pages` (
 
 INSERT INTO `pages` (`page_id`, `page_slug`, `page_name`, `page_short_description`, `page_description`, `image`, `page_type`, `page_status`, `create_time`, `create_date`, `created_by`, `modify_time`, `modify_date`, `modified_by`) VALUES
 (1, 'home', 'Home', NULL, NULL, NULL, 'default', 'active', '18:10:12', '2020-03-24', 1, NULL, NULL, NULL),
-(2, 'about', 'about', 'RFL Plastics is a sister concern of PRAN-RFL group. The company was founded by Late. Mr. Amjad Khan Chowdhury in1981 with a vision to leveraging the farmer in irrigation as well as ensuring drinking water through Water Pump & Tube-well. After that it commenced', '<p>RFL Plastics is a sister concern of PRAN-RFL group. The company was founded by Late. Mr. Amjad Khan Chowdhury in1981 with a vision to leveraging the farmer in irrigation as well as ensuring drinking water through Water Pump &amp; Tube-well. After that it commenced its operation in different categories and starts plastics line 2003. The factory sites are in company owned industrial parks of 300,000 sq meters including building area of 200,000 which is fully equipped with state of the art injection, Compressed &amp; blow molding machines with a conversion capacity of over 5000 tons per month.</p>\r\n<p>RFL Plastics currently utilizes 4000 molds through 500 machines having a growth rate of 30% over last year backed by own tooling facilities. The growth story behind of this brand is expansion &amp; availability of innovative &amp; affordable solution for household durables &amp; utensils.</p>\r\n<p>RFL Plastics is a sister concern of PRAN-RFL group. The company was founded by Late. Mr. Amjad Khan Chowdhury in1981 with a vision to leveraging the farmer in irrigation as well as ensuring drinking water through Water Pump &amp; Tube-well. After that it commenced its operation in different categories and starts plastics line 2003. The factory sites are in company owned industrial parks of 300,000 sq meters including building area of 200,000 which is fully equipped with state of the art injection, Compressed &amp; blow molding machines with a conversion capacity of over 5000 tons per month.</p>\r\n<p>RFL Plastics currently utilizes 4000 molds through 500 machines having a growth rate of 30% over last year backed by own tooling facilities. The growth story behind of this brand is expansion &amp; availability of innovative &amp; affordable solution for household durables &amp; utensils.</p>\r\n<p><img src=\"/photos/6/16020901.jpg\" alt=\"\" /></p>', '1606112532.jpg', '', 'active', NULL, NULL, 1, '06:22:12', '2020-11-23', 6),
+(2, 'about', 'about', 'RFL Plastics is a sister concern of PRAN-RFL group. The company was founded by Late. Mr. Amjad Khan Chowdhury in1981 with a vision to leveraging the farmer in irrigation as well as ensuring drinking water through Water Pump & Tube-well. After that it commenced', '<p>RFL Plastics is a sister concern of PRAN-RFL group. The company was founded by Late. Mr. Amjad Khan Chowdhury in1981 with a vision to leveraging the farmer in irrigation as well as ensuring drinking water through Water Pump &amp; Tube-well. After that it commenced its operation in different categories and starts plastics line 2003. The factory sites are in company owned industrial parks of 300,000 sq meters including building area of 200,000 which is fully equipped with state of the art injection, Compressed &amp; blow molding machines with a conversion capacity of over 5000 tons per month.</p>\r\n<p>RFL Plastics currently utilizes 4000 molds through 500 machines having a growth rate of 30% over last year backed by own tooling facilities. The growth story behind of this brand is expansion &amp; availability of innovative &amp; affordable solution for household durables &amp; utensils.</p>\r\n<p><iframe src=\"//www.youtube.com/embed/JHpXEHpQspE\" width=\"560\" height=\"314\" allowfullscreen=\"allowfullscreen\"></iframe></p>', '1606112532.jpg', '', 'active', NULL, NULL, 1, '07:34:47', '2021-01-03', 6),
 (3, 'global-presence', 'Global Presence', 'RFL now successfully operating 64 countries around the world.', '<p>RFL now successfully operating 64 countries around the world.</p>\r\n<p><img src=\"/photos/6/glo.jpg\" alt=\"\" /></p>', '1600014640.png', '', 'active', NULL, NULL, 1, '11:48:46', '2020-10-11', 6),
 (4, 'quality-compliance', 'Quality Compliance', 'We are also certified by CARREFOUR,TRUDEAU CORPORATION, KIK, WORLD DISNEY, BSCI CERTIFICATION & SEDEX.', '<p>We are also certified by CARREFOUR,TRUDEAU CORPORATION, KIK, WORLD DISNEY, BSCI CERTIFICATION &amp; SEDEX.</p>\r\n<p>ISO Certified: Iso-14001:2004 (Environment Management System) Iso-9001:2008 (Quality Management System)</p>\r\n<p><img src=\"/photos/6/q1.jpg\" alt=\"\" /></p>\r\n<p>&nbsp;</p>', '1600014902.png', '', 'active', NULL, NULL, 1, '11:50:02', '2020-10-11', 6),
-(5, 'factories', 'Factories', 'Visit our factory', '<p style=\"text-align: center;\"><iframe src=\"//www.youtube.com/embed/dpfAVUZ99uE\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe></p>', '1600014448.png', '', 'active', NULL, NULL, 1, '11:52:38', '2020-10-11', 6),
+(5, 'factories', 'Factories', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', '<p style=\"text-align: center;\"><iframe src=\"//www.youtube.com/embed/dpfAVUZ99uE\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe></p>', '1600014448.png', '', 'active', NULL, NULL, 1, '09:36:26', '2020-12-31', 6),
 (6, 'achievements', 'Achievements', 'We received BEST EXPORTER TROPHY for last 5 consecutive years.', '<p>It is our pleasure that we have got several recognitions from both national and international organization as the best business enterprise through sustainable growth. We received BEST EXPORTER TROPHY for last 5 consecutive years.</p>', '1600014402.png', '', 'active', NULL, NULL, 1, '11:54:43', '2020-10-11', 6),
 (7, 'faq', 'Faq', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.', '<p><strong>Q:</strong> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel</p>\r\n<p><strong>Ans:</strong> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel</p>\r\n<p><strong>Q:</strong> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel</p>\r\n<p><strong>Ans:</strong> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel</p>\r\n<p><strong>Q:</strong> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel</p>\r\n<p><strong>Ans:</strong> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel</p>', '1600015082.png', '', 'active', NULL, NULL, 1, '05:54:45', '2020-11-21', 6),
 (8, 'privacy-policy', 'Privacy-Policy', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '', 'active', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1015,7 +1031,17 @@ INSERT INTO `pages` (`page_id`, `page_slug`, `page_name`, `page_short_descriptio
 (11, 'partners', 'Partners', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1600014069.jpg', '', 'active', NULL, NULL, NULL, '16:21:09', '2020-09-13', 6),
 (12, 'contact', 'Contact', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1600072886.png', '', 'active', NULL, NULL, NULL, '08:41:26', '2020-09-14', 6),
 (13, 'privacy-policy', 'Privacy policy', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat ma Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</p>', '1600015082.png', '', 'active', NULL, NULL, NULL, '08:49:57', '2020-09-14', 6),
-(14, 'terms-of-use', 'Terms of use', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat ma Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</p>', '1600015082.png', '', 'active', NULL, NULL, NULL, NULL, NULL, NULL);
+(14, 'terms-of-use', 'Terms of use', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat ma Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</p>', '1600015082.png', '', 'active', NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'news', 'News', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609674606.jpg', 'additional', 'active', '11:33:00', '2021-01-03', 6, '12:10:20', '2021-01-03', 6),
+(16, 'event', 'Event', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609678988.jpg', 'additional', 'active', '11:35:48', '2021-01-03', 6, '13:03:08', '2021-01-03', 6),
+(17, 'image-gallery', 'Image Gallery', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609678951.jpg', 'additional', 'active', '11:42:05', '2021-01-03', 6, '13:02:31', '2021-01-03', 6),
+(18, 'video-gallery', 'Video Gallery', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609678917.jpg', 'additional', 'active', '11:43:17', '2021-01-03', 6, '13:01:57', '2021-01-03', 6),
+(19, 'best-buy-outlets', 'Best Buy Outlets', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609678878.jpg', 'additional', 'active', '11:44:59', '2021-01-03', 6, '13:01:18', '2021-01-03', 6),
+(20, 'exclusive-outlets', 'Exclusive Outlets', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609678834.jpg', 'additional', 'active', '11:45:28', '2021-01-03', 6, '13:00:34', '2021-01-03', 6),
+(21, 'carniva-outlets', 'Carniva Outlets', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609678799.jpg', 'additional', 'active', '11:45:59', '2021-01-03', 6, '12:59:59', '2021-01-03', 6),
+(22, 'blog', 'Blog', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609678727.jpg', 'additional', 'active', '11:46:10', '2021-01-03', 6, '12:58:47', '2021-01-03', 6),
+(23, 'catalog', 'Catalog', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', NULL, '1609678681.jpg', 'additional', 'active', '12:36:28', '2021-01-03', 6, '12:58:01', '2021-01-03', 6),
+(24, 'sitemap', 'Sitemap', NULL, NULL, NULL, 'additional', 'active', '12:36:49', '2021-01-03', 6, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1045,14 +1071,15 @@ CREATE TABLE `page_attribute` (
 --
 
 INSERT INTO `page_attribute` (`attribute_id`, `attribute_name`, `fk_page_id`, `page_title`, `page_subtitle`, `page_subtitle_bold`, `featured_image`, `page_description`, `create_time`, `create_date`, `created_by`, `modify_time`, `modify_date`, `modified_by`) VALUES
-(1, 'page-description', 1, 'Sojib Bhai test', 'Recycling plastic feels test', 'fantastic! test', '1606217304.png', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. test', NULL, NULL, NULL, '11:28:24', '2020-11-24', 6),
-(2, 'home-tab', 1, 'Products Performance', 'https://play.google.com/store/apps/details?id=com.bitsmedia.android.muslimpro', NULL, '16062175361.png', 'PROMISE to help create ways of reusing household and post indus-trial plastic waste', NULL, NULL, NULL, '11:32:16', '2020-11-24', 6),
-(3, 'home-tab', 1, 'Food Grade', 'link', NULL, '16062175362.png', 'PROMISE to help create ways of reusing household and post indus-trial plastic waste', NULL, NULL, NULL, '11:32:16', '2020-11-24', 6),
-(4, 'home-tab', 1, 'Bisphenol – A (BPA) Free', 'link', NULL, '16062175363.png', 'PROMISE to help create ways of reusing household and post indus-trial plastic waste', NULL, NULL, NULL, '11:32:16', '2020-11-24', 6),
-(5, 'home-tab', 1, 'Premium quality', 'link', NULL, '16062175364.png', 'PROMISE to help create ways of reusing household and post indus-trial plastic waste', NULL, NULL, NULL, '11:32:16', '2020-11-24', 6),
+(1, 'page-description', 1, 'Sojib Bhai test edit', 'Recycling plastic feels test jju', 'fantastic! test abc', '1609405240.png', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.', NULL, NULL, NULL, '13:22:52', '2021-01-03', 6),
+(2, 'home-tab', 1, 'Products Performance', 'https://play.google.com/store/apps/details?id=com.bitsmedia.android.muslimpro', NULL, '16062175361.png', 'PROMISE to help create ways of reusing household and post indus-trial plastic waste', NULL, NULL, NULL, '17:20:15', '2021-01-02', 6),
+(3, 'home-tab', 1, 'Food Grade', 'link', NULL, '16062175362.png', 'PROMISE to help create ways of reusing household and post indus-trial plastic waste', NULL, NULL, NULL, '17:20:15', '2021-01-02', 6),
+(4, 'home-tab', 1, 'Bisphenol – A (BPA) Free', 'link', NULL, '16062175363.png', 'PROMISE to help create ways of reusing household and post indus-trial plastic waste', NULL, NULL, NULL, '17:20:15', '2021-01-02', 6),
+(5, 'home-tab', 1, 'Premium quality', 'link', NULL, '16062175364.png', 'PROMISE to help create ways of reusing household and post indus-trial plastic waste', NULL, NULL, NULL, '17:20:15', '2021-01-02', 6),
 (6, 'Intro-image', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'product-section-one', 1, 'Lorem ipsum dolor sit amet test', 'Cum sociis natoque test 2', 'penatibus test 3', NULL, 'Short Description', NULL, NULL, NULL, '10:11:12', '2020-11-20', 6),
-(8, 'product-section-two', 1, 'Lorem ipsum dolor sit amet test 4', 'Cum sociis natoque test 5', 'penatibus test 3', 'https://www.bdtender.com/tend_call.php?id=10360575', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(7, 'product-section-one', 1, 'Lorem ipsum dolor sit amet test Lorem ipsum dolor sit amet test', 'Cum sociis natoque test 2', 'penatibus test 3', NULL, 'Short Description', NULL, NULL, NULL, '10:11:12', '2020-11-20', 6),
+(8, 'product-section-two', 1, 'Lorem ipsum dolor sit amet test 4 3', 'Cum sociis natoque test 5 4', 'penatibus test 3 r', 'https://www.bdtender.com/tend_call.php?id=10360575', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'catalog-info', 1, 'Lorem ipsum dolor sit amet', 'consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur r', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1073,7 +1100,8 @@ CREATE TABLE `password_resets` (
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 ('admin@me.com', '$2y$10$kSipCgffKc6lcOjqQD/R6eK4gmyTl5iGyD..7azUkMUybwAAbU7Ha', '2020-04-26 02:03:21'),
 ('sajib@3-devs.com', '$2y$10$fgZXmT2Arb3cZRspBIm/XOH1A.YagVx8.pw1wkQQT0OmtORi3b3bi', '2020-06-26 18:19:41'),
-('admin@rfl.com', '$2y$10$RE16D.tb0REYY8.u5AjKwOHzI6Hr7CWZ5/9VeBSE1wI0pz.ZL9WsK', '2020-07-06 21:58:22');
+('admin@rfl.com', '$2y$10$VPdTYx/KSXJ9nXdpJpp.YeGQXauQ7du508KOIQnuZqZqKG3/EuPgK', '2020-12-31 09:52:14'),
+('sharifulsajib2@gmail.com', '$2y$10$MyRI8dz5cY5Q0uEETFkpbuvJ29gRlRtai9FLCDxyK57va09GuODP6', '2020-12-31 09:57:13');
 
 -- --------------------------------------------------------
 
@@ -1095,7 +1123,7 @@ CREATE TABLE `popup_image` (
 --
 
 INSERT INTO `popup_image` (`id`, `image`, `link`, `status`, `created_at`, `updated_at`) VALUES
-(5, 'popup_thumbnail_1604228163.jpg', NULL, 'inactive', '2020-10-31 22:35:36', '2020-11-01 04:57:36');
+(5, 'popup_thumbnail_1609680365.jpg', NULL, 'active', '2020-10-31 22:35:36', '2021-01-03 13:26:05');
 
 -- --------------------------------------------------------
 
@@ -1126,7 +1154,7 @@ CREATE TABLE `products` (
   `promotional_price` double DEFAULT NULL,
   `product_description` text COLLATE utf8mb4_unicode_ci,
   `barcode_info` text COLLATE utf8mb4_unicode_ci,
-  `product_attribute` enum('new-arrival','featured','top-sale') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'new-arrival',
+  `product_attribute` enum('new-arrival','featured','top-sale') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `discount` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
   `create_time` time DEFAULT NULL,
@@ -1219,13 +1247,15 @@ INSERT INTO `products` (`product_id`, `category_id`, `subcategory_id`, `item_id`
 (84, 1, 39, 48, 'Pumpkin Spice Tray - Red', 'pumpkin-spice-tray-red', '[\"\"]', '16.7X16X9', NULL, NULL, '[\"Red\"]', 'Item Code: 914521\r\nDimension: 16.7X16X9\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1603172327.jpg', '[]', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 914521<br />Dimension: 16.7X16X9<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', NULL, 'new-arrival', NULL, 'active', '05:38:47', '2020-10-20', 6, NULL, NULL, NULL),
 (85, 1, 39, 48, 'Crown Spice Pot 3 Cup -Red', 'crown-spice-pot-3-cup-red', '[\"\"]', '28X11X10', NULL, NULL, '[\"Red\"]', 'Item Code: 917129\r\nDimension: 28X11X10\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1603172443.jpg', '[]', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 917129<br />Dimension: 28X11X10<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>', NULL, 'new-arrival', NULL, 'active', '05:40:43', '2020-10-20', 6, NULL, NULL, NULL),
 (86, 1, 39, 48, 'Sunflower Masala Box-Tr Green', 'sunflower-masala-box-tr-green', '[\"\"]', '26.7X24.7X7.6', NULL, NULL, '[\"Green\"]', 'Item Code: 923846\r\nDimension: 26.7X24.7X7.6\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1603172575.jpg', '[]', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, NULL, NULL, 'new-arrival', NULL, 'active', '05:42:55', '2020-10-20', 6, NULL, NULL, NULL),
-(87, 1, 39, 48, 'Sunflower Masala Box-Tr Blue', 'sunflower-masala-box-tr-blue', '[\"\"]', '26.7X24.7X7.6', NULL, NULL, '[\"Blue\"]', 'Item Code: 923845\r\nDimension: 26.7X24.7X7.6\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1603172721.jpg', '{\"additional_image\":\"additional_image_1606217859.png\",\"extra_image\":null,\"supplementary_image\":null,\"auxiliary_image\":null}', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 923845<br />Dimension: 26.7X24.7X7.6<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', NULL, 'new-arrival', NULL, 'active', '05:45:21', '2020-10-20', 6, '11:37:39', '2020-11-24', 6),
+(87, 1, 39, 48, 'Sunflower Masala Box-Tr Blue', 'sunflower-masala-box-tr-blue', '[\"\"]', '26.7X24.7X7.6', NULL, NULL, '[\"Blue\"]', 'Item Code: 923845\r\nDimension: 26.7X24.7X7.6\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1603172721.jpg', '[]', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 923845<br />Dimension: 26.7X24.7X7.6<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', NULL, 'new-arrival', NULL, 'active', '05:45:21', '2020-10-20', 6, NULL, NULL, NULL),
 (88, 1, 39, 49, 'Royal Chopping Board-34CM-Assorted', 'royal-chopping-board-34cm-assorted', '[\"\"]', '34X24.2X0.5', '34CM', NULL, '[\"Red\",\" Blue\",\" Green\",\" Pink\",\" Purple\"]', 'Item Code: 838523\r\nCapacity: 34CM\r\nDimension: 34X24.2X0.5\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly\r\n6.	Applicable for Cutting Vegetable, Meat etc.', '1603173474.jpg', '[]', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 838523<br />Capacity: 34CM<br />Dimension: 34X24.2X0.5<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly<br />6. Applicable for Cutting Vegetable, Meat etc.</p>', NULL, 'new-arrival', NULL, 'active', '05:57:54', '2020-10-20', 6, NULL, NULL, NULL),
 (89, 1, 39, 49, 'Prime Chopping Board 39 CM-Assorted', 'prime-chopping-board-39-cm-assorted', '[\"\"]', '39X23.5X2.5', '39 CM', NULL, '[\"Red\",\" Blue\",\" Green\",\" Pink\",\" Purple\"]', 'Item Code: 838591\r\nCapacity: 39 CM\r\nDimension: 39X23.5X2.5\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly\r\n6.	Applicable for vegetable, meat etc.', '1603173634.jpg', '[]', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 838591<br />Capacity: 39 CM<br />Dimension: 39X23.5X2.5<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly<br />6. Applicable for vegetable, meat etc.</p>', NULL, 'new-arrival', NULL, 'active', '06:00:34', '2020-10-20', 6, NULL, NULL, NULL),
 (90, 1, 39, 49, 'Royal Chopping Board-34CM-White', 'royal-chopping-board-34cm-white', '[\"\"]', '34X24.2X0.5', NULL, NULL, '[\"White\"]', 'Item Code: 839870\r\nDimension: 34X24.2X0.5\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly\r\n6.	Applicable for Storage of Cutting Vegetable, Meat etc.', '1603175966.jpg', '[]', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 839870<br />Dimension: 34X24.2X0.5<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly<br />6. Applicable for Storage of Cutting Vegetable, Meat etc.</p>', NULL, 'new-arrival', NULL, 'active', '06:39:26', '2020-10-20', 6, NULL, NULL, NULL),
-(91, 1, 39, 50, 'Dish Drainer-Folding-Red', 'dish-drainer-folding-red', '[\"\"]', '42X36X10.8', NULL, NULL, '[\"Red\"]', 'hello', '1603176407.jpg', '{\"additional_image\":null,\"extra_image\":null,\"supplementary_image\":null,\"auxiliary_image\":null}', 'hello 2', 'hello  care', NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>hello 3</p>', '<p>hello 4</p>', 'featured', '5', 'active', '06:46:47', '2020-10-20', 6, '06:27:24', '2020-11-23', 6),
-(94, 1, 39, 50, 'Caino Tray-Eagle Brown', 'caino-tray-eagle-brown', '[\"\"]', '42.5X31X5.2', NULL, NULL, '[\"Brown\"]', 'Item Code: 918260\r\nDimension: 42.5X31X5.2\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1606112147.png', '{\"additional_image\":\"additional_image_1606112049.png\",\"extra_image\":\"extra_image_1606112021.png\",\"supplementary_image\":\"supplementary_image_1606112021.png\",\"auxiliary_image\":\"auxiliary_image_1606112034.png\"}', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 918260<br />Dimension: 42.5X31X5.2<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', NULL, 'featured', NULL, 'active', '06:55:38', '2020-10-20', 6, '06:15:47', '2020-11-23', 6),
-(95, 4, 53, 56, 'toy', 'toy', '[\"23\"]', NULL, NULL, NULL, '[\"\"]', NULL, '1606218804.png', '{\"additional_image\":\"additional_image_1606218804.png\"}', NULL, NULL, NULL, NULL, NULL, NULL, '<p>cds</p>', '<p>cds</p>', 'featured', NULL, 'active', '11:53:24', '2020-11-24', 6, NULL, NULL, NULL);
+(91, 1, 39, 140, 'Dish Drainer-Folding-Red', 'dish-drainer-folding-red', '[\"\"]', '42X36X10.8', NULL, NULL, '[\"Red\"]', 'Item Code: 91531\r\nDimension: 42X36X10.8\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1603176407.jpg', '{\"additional_image\":null,\"extra_image\":null,\"supplementary_image\":null,\"auxiliary_image\":null}', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 91531<br />Dimension: 42X36X10.8<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', NULL, 'new-arrival', NULL, 'active', '06:46:47', '2020-10-20', 6, '11:57:10', '2020-12-31', 6),
+(92, 1, 39, 50, 'Sauce Can - Trans', 'sauce-can-trans', '[\"\"]', '18.3X18.3', NULL, NULL, '[\"Transparent\"]', NULL, '1609416409.png', '{\"additional_image\":null,\"extra_image\":null,\"supplementary_image\":null,\"auxiliary_image\":null}', 'Item Code: 95073\r\nDimension: 18.3X18.3\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 95073<br />Dimension: 18.3X18.3<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', NULL, 'featured', NULL, 'active', '06:50:13', '2020-10-20', 6, '12:06:49', '2020-12-31', 7),
+(93, 1, 39, 50, 'Funnel Big', 'funnel-big', '[\"\"]', '15.7X14X15.2', NULL, NULL, '[\"White\"]', 'Item Code: 881180\r\nDimension: 15.7X14X15.2\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1609416394.png', '{\"additional_image\":null,\"extra_image\":null,\"supplementary_image\":null,\"auxiliary_image\":null}', NULL, NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 881180<br />Dimension: 15.7X14X15.2<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', NULL, 'featured', NULL, 'active', '06:53:39', '2020-10-20', 6, '12:06:35', '2020-12-31', 7),
+(94, 1, 103, 163, 'Caino Tray-Eagle Brown', 'caino-tray-eagle-brown', '[\"\"]', '42.5X31X5.2', NULL, NULL, '[\"Brown\"]', 'Item Code: 918260\r\nDimension: 42.5X31X5.2\r\nFeatures:\r\n1.	100% Food Grade\r\n2.	Healthy and Safe\r\n3.	Color and Sizes are Available\r\n4.	Easy to Clean\r\n5.	Eco-friendly', '1609416381.png', '{\"additional_image\":null,\"extra_image\":null,\"supplementary_image\":null,\"auxiliary_image\":null}', 'Item Code: 918260\r\nDimension: 42.5X31X5.2\r\nFeatures:\r\n1. 100% Food Grade\r\n2. Healthy and Safe\r\n3. Color and Sizes are Available\r\n4. Easy to Clean\r\n5. Eco-friendly', NULL, NULL, 'https://www.othoba.com/rfl-houseware', NULL, NULL, '<p>Item Code: 918260<br />Dimension: 42.5X31X5.2<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', '<p>Item Code: 918260<br />Dimension: 42.5X31X5.2<br />Features:<br />1. 100% Food Grade<br />2. Healthy and Safe<br />3. Color and Sizes are Available<br />4. Easy to Clean<br />5. Eco-friendly</p>\r\n<p>&nbsp;</p>', 'new-arrival', NULL, 'active', '06:55:38', '2020-10-20', 6, '06:50:01', '2021-01-03', 6),
+(95, 2, 34, 97, 'Product By Arnov', 'product-by-arnov', '[\"\"]', NULL, NULL, NULL, '[\"\"]', NULL, '1609658586.jpg', '{\"additional_image\":\"additional_image_1609659904.jpg\",\"extra_image\":\"extra_image_1609679169.png\",\"supplementary_image\":\"supplementary_image_1609679169.jpg\",\"auxiliary_image\":null}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'featured', NULL, 'active', '07:23:06', '2021-01-03', 6, '13:07:53', '2021-01-03', 6);
 
 -- --------------------------------------------------------
 
@@ -1246,11 +1276,9 @@ CREATE TABLE `social` (
 --
 
 INSERT INTO `social` (`id`, `icon_class`, `website_url`, `created_at`, `updated_at`) VALUES
-(1, 'fab fa-facebook-f', '#', '2020-09-02 01:18:04', '2020-09-02 01:18:04'),
 (2, 'fab fa-youtube', '#', '2020-09-02 01:18:25', '2020-09-02 01:18:25'),
 (3, 'fab fa-linkedin-in', '#', '2020-09-02 01:18:46', '2020-09-02 01:18:46'),
-(5, 'fab fa-instagram', '#', '2020-10-27 02:39:17', '2020-10-27 02:39:17'),
-(6, 'fab fa-twitter', '#', '2020-10-27 02:54:16', '2020-10-27 02:54:16');
+(8, 'fab fa-facebook-f', 'https://www.facebook.com/', '2020-12-31 09:41:05', '2021-01-03 04:35:31');
 
 -- --------------------------------------------------------
 
@@ -1265,6 +1293,13 @@ CREATE TABLE `sticky_content_footer` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sticky_content_footer`
+--
+
+INSERT INTO `sticky_content_footer` (`id`, `text`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'consectetuer adipiscing elit. Aenean commodo ligula eget dolor', 'on', '2021-01-03 06:45:31', '2021-01-03 06:45:31');
 
 -- --------------------------------------------------------
 
@@ -1357,7 +1392,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(6, 'Admin', 'admin@rfl.com', NULL, '$2y$10$ENqkZfB0.iHmqFWOXZoKIOhA4PEgOfIYSUZ5vFBnlCz.Bt60OSrtu', 'cXyyoe3mBUx1MCKRIkCfXMbCdhalhRExLYCNnXedg0RWJfqYWIisotcX6guo', '2020-04-02 04:33:32', NULL);
+(6, 'Admin', 'admin@rfl.com', NULL, '$2y$10$ENqkZfB0.iHmqFWOXZoKIOhA4PEgOfIYSUZ5vFBnlCz.Bt60OSrtu', 'Gd74Q6iJTQbRjkzuKQuvax1yrL6avWPA7fPoOKItaKQV3JvQmfE8GNxHa9xI', '2020-04-02 04:33:32', NULL),
+(7, 'Md Sariful Islam', 'sharifulsajib2@gmail.com', NULL, '$2y$10$.6hfn6EBzMNlZDdeuzteSOKE6j/QXdu1WZtsy.UgO7aPLbR/XTNWi', NULL, '2020-12-31 09:53:13', '2021-01-03 06:57:04');
 
 --
 -- Indexes for dumped tables
@@ -1521,13 +1557,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `category_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT for table `configurations`
@@ -1539,13 +1575,13 @@ ALTER TABLE `configurations`
 -- AUTO_INCREMENT for table `contact_mail`
 --
 ALTER TABLE `contact_mail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `content_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `content_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `content_relations`
@@ -1593,25 +1629,25 @@ ALTER TABLE `markers`
 -- AUTO_INCREMENT for table `newsletters`
 --
 ALTER TABLE `newsletters`
-  MODIFY `newsletter_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `newsletter_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `outlets`
 --
 ALTER TABLE `outlets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `page_id` bigint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `page_id` bigint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `page_attribute`
 --
 ALTER TABLE `page_attribute`
-  MODIFY `attribute_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `attribute_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `popup_image`
@@ -1629,13 +1665,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `social`
 --
 ALTER TABLE `social`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `sticky_content_footer`
 --
 ALTER TABLE `sticky_content_footer`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `upazilas`
@@ -1647,7 +1683,7 @@ ALTER TABLE `upazilas`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,6 +1,15 @@
+<style>
+    .page-header {
+        background-image : url("{{ URL::to('/uploads/') }}{{'/'}}{{ $page_info->image }}");
+    }
+</style>
 <!-- page header start -->
-<section class="page-header style2">
+<section class="page-header">
     <div class="container">
+        <div class="page-header-content">
+            <h3>Blogs</h3>
+            <p>{{ $page_info->page_short_description }}</p>
+        </div>
         <ul class="breadcrumb">
             <li><a href="{{ URL('/') }}">Home</a></li>
             <li><a href="{{ URL('/blog') }}">Blogs</a></li>
@@ -35,8 +44,8 @@
                     <h5 class="widget-title">Latest Blogs</h5>
                     <div class="widget-wrapper">
                         <div class="latest-news-list">
-                            
-                            
+
+
                             @foreach ($all_blogs as $blog)
                             <div class="post-item d-flex">
                                 <div class="post-thumb">
@@ -52,7 +61,7 @@
                                 </div>
                             </div>
                             @endforeach
-                            
+
                         </div>
                     </div>
                 </div>

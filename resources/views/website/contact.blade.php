@@ -41,8 +41,10 @@
             <div class="contact-info-area col-lg-4 p-0 order-lg-last d-flex align-items-center">
                 <div class="contact-info">
                     @foreach ($address as $value)
-                    @if ($value->address)
+                    @if ($value->title)
                     <span class="address-title">{{ $value->title }}</span>
+                    @endif
+                    @if ($value->address)
                     <div class="contact-item pt--20 pb--20">
                         <div class="contact-icon">
                             <i class="far fa-map"></i>

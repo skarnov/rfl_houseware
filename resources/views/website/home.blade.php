@@ -170,7 +170,6 @@
                 </div>
             </div>
         </div>
-
         <!-- mobile-menu-end -->
 
         <!-- header section start -->
@@ -309,7 +308,7 @@
                             </ul>
                             <ul class="menu-action list-unstyled d-flex align-items-center">
                                 <li class="search-option"><i class="fas fa-search"></i></li>
-                               <!--- <li class="global"><a href="http://global.rflhouseware.com"  target="_blank"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></li> !-->
+                                <li class="global"><a href="http://global.rflhouseware.com"  target="_blank"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></li>
                                 <li class="shop ml--20"><a class="shop-btn" href="https://othoba.com/rfl"  target="_blank"><span><i class="fas fa-shopping-cart"></i>Shop Online</span></a></li>
                             </ul>
                         </div>

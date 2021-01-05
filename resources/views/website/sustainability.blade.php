@@ -22,12 +22,13 @@
     </head>
 
     <body id="top-page" class="sustainability">
+        <!-- mobile-menu-start -->
         <div class="mobile-menu-container d-lg-none">
             <div class="mobile-menu-header d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a class="navbar-brand" href="{{ URL('/') }}"><img src="{{ URL::to('/uploads/') }}{{'/'}}{{ $logo[1]->image_value }}" alt="RFL Logo"></a>
+                    <a class="navbar-brand" href="{{ URL('/') }}"><img src="{{ URL::to('/uploads/') }}{{'/'}}{{ $logo[1]->image_value }}" alt="{{ $settings['project_name']??'' }}"></a>
                 </div>
-                <div class="global"><a href="global.rflhouseware.com"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="Globel RFL"></a></div>
+                <div class="global"><a target="b_blank" href="http://global.rflhouseware.com"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></div>
                 <div class="close-btn">
                     <span></span>
                     <span></span>
@@ -43,7 +44,7 @@
                 </div>
                 <div class="mobile-menu">
                     <ul class="nav-menu d-lg-flex flex-wrap list-unstyled mr_lg--20  mb-0 justify-content-center">
-                        <li class="nav-item"><a href="{{ URL('/') }}">Home</a></li>
+                        <li class="nav-item active"><a href="{{ URL('/') }}">Home</a></li>
                         <li class="nav-item mobile-dropdown"><a href="javascript:;">About</a>
                             <ul class="mobile-submenu">
                                 <li><a href="{{ URL('/about') }}">About Us</a></li>
@@ -95,7 +96,7 @@
                             }
                             ?>
                         </li>
-                        <li class="nav-item active"><a href="{{ URL('/sustainability') }}">Sustainability</a></li>
+                        <li class="nav-item"><a href="{{ URL('/sustainability') }}">Sustainability</a></li>
                         <li class="nav-item mobile-dropdown"><a href="javascript:;">Media</a>
                             <ul class="mobile-submenu">
                                 <li><a href="{{ URL('/news') }}">News</a></li>
@@ -109,23 +110,34 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="{{ URL('/blog') }}">Blog</a></li>
+                        <li class="nav-item mobile-dropdown"><a href="#">Outlets</a>
+                            <ul class="mobile-submenu">
+                                <li><a href="{{ URL('/bestbuyoutlets') }}" class="rfl-outlet-item">
+                                        RFL Best Buy
+                                    </a></li>
+                                <li><a href="{{ URL('/exclusiveoutlets') }}" class="rfl-outlet-item">
+                                        RFL Carnival
+                                    </a></li>
+                                <li><a href="{{ URL('/carnivaoutlets') }}" class="rfl-outlet-item">
+                                        RFL Exclusive
+                                    </a></li>
+                            </ul>
+                        </li>
                     </ul>
+                    <div class="share-area d-flex justify-content-center pt-4">
+                        @foreach($social as $socials)
+                        <a href="{{ $socials->website_url }}" target="b_blank"><i class="{{ $socials->icon_class }}"></i></a>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-            <div class="outlet-area-mm">
-                <div class="rfl-outlet-content-mm">
-                    <a href="{{ URL('/bestbuyoutlets') }}" class="rfl-outlet-item">
-                        <img src="{{ URL('/assets/frontend/images/rfl-outlet/best-buy.png') }}" alt="outlet">
-                    </a>
-                    <a href="{{ URL('/exclusiveoutlets') }}" class="rfl-outlet-item">
-                        <img src="{{ URL('/assets/frontend/images/rfl-outlet/rfl.png') }}" alt="outlet">
-                    </a>
-                    <a href="{{ URL('/carnivaoutlets') }}" class="rfl-outlet-item">
-                        <img src="{{ URL('/assets/frontend/images/rfl-outlet/carniva.png') }}" alt="outlet">
-                    </a>
+                <div class="outlet-area-mm">
+                    <div class="rfl-outlet-content-mm">
+                        <a class="buy-online">Buy Online</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- mobile-menu-end -->
 
         <!-- header section start -->
         <header class="header style2">
@@ -244,6 +256,7 @@
                             </ul>
                             <ul class="menu-action list-unstyled d-flex align-items-center">
                                 <li class="search-option"><i class="fas fa-search"></i></li>
+                                <li class="global"><a href="http://global.rflhouseware.com"  target="_blank"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></li>
                                 <li class="shop ml--20"><a class="shop-btn" href="https://othoba.com/rfl"  target="_blank"><span><i class="fas fa-shopping-cart"></i>Shop Online</span></a></li>
                             </ul>
                         </div>

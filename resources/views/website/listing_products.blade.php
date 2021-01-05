@@ -17,3 +17,10 @@
     </div>
 </div>
 @endforelse
+<script>
+    jQ.push(function () {
+        /*Start Active Class*/
+        $('#product').addClass('active');
+        /*End Active Class*/
+    });
+</script>

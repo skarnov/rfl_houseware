@@ -50,7 +50,7 @@
         <div class="mar-container short">
             <div class="mar-block animate">
                 @foreach($sitcky as $main )
-                 {{ $main->text}}
+                {{ $main->text}}
                 @endforeach
             </div>
         </div>
@@ -60,9 +60,9 @@
         <div class="mobile-menu-container d-lg-none">
             <div class="mobile-menu-header d-flex justify-content-between align-items-center">
                 <div class="logo">
-                     <a class="navbar-brand" href="{{ URL('/') }}"><img src="{{ URL::to('/uploads/') }}{{'/'}}{{ $logo[1]->image_value }}" alt="{{ $settings['project_name']??'' }}"></a>
+                    <a class="navbar-brand" href="{{ URL('/') }}"><img src="{{ URL::to('/uploads/') }}{{'/'}}{{ $logo[1]->image_value }}" alt="{{ $settings['project_name']??'' }}"></a>
                 </div>
-              <!---  <div class="global"><a target="b_blank" href="http://global.rflhouseware.com"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></div> !--->
+                <div class="global"><a target="b_blank" href="http://global.rflhouseware.com"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></div>
                 <div class="close-btn">
                     <span></span>
                     <span></span>
@@ -94,39 +94,39 @@
                         </li>
                         <li class="nav-item mobile-dropdown"><a href="javascript:;">Product</a>
                             <?php
-                            if(isset($all_categories)){
-                            foreach ($all_categories as $key => $category) {
-                                ?>
-                                <ul class="mobile-submenu">
-                                    <li class="mobile-dropdown"><a href="javascript:;"><?php echo $category->category_name ?></a>
-                                        <ul class="mobile-submenu">
-                                            <?php
-                                            foreach ($all_subcategories as $subcategory) {
-                                                if ($subcategory->fk_category_id == $category->category_id) {
-                                                    ?>
-                                                    <li class="mobile-dropdown">
-                                                        <a href="#"><?php echo $subcategory->subcategory_name ?></a>
-														<ul class="mobile-submenu">
-																<?php
-																foreach ($all_items as $item) {
-																	if ($item->fk_item_id == $subcategory->category_id) {
-																		?>
-																		<li><a href="{{ URL('/item_listing/') }}/<?php echo $item->url_slug ?>"><?php echo $item->item_name ?></a></li>
-																		<?php
-																	}
-																}
-																?>
-														</ul>
-                                                    </li>
-                                                    <?php
+                            if (isset($all_categories)) {
+                                foreach ($all_categories as $key => $category) {
+                                    ?>
+                                    <ul class="mobile-submenu">
+                                        <li class="mobile-dropdown"><a href="javascript:;"><?php echo $category->category_name ?></a>
+                                            <ul class="mobile-submenu">
+                                                <?php
+                                                foreach ($all_subcategories as $subcategory) {
+                                                    if ($subcategory->fk_category_id == $category->category_id) {
+                                                        ?>
+                                                        <li class="mobile-dropdown">
+                                                            <a href="#"><?php echo $subcategory->subcategory_name ?></a>
+                                                            <ul class="mobile-submenu">
+                                                                <?php
+                                                                foreach ($all_items as $item) {
+                                                                    if ($item->fk_item_id == $subcategory->category_id) {
+                                                                        ?>
+                                                                        <li><a href="{{ URL('/item_listing/') }}/<?php echo $item->url_slug ?>"><?php echo $item->item_name ?></a></li>
+                                                                        <?php
+                                                                    }
+                                                                }
+                                                                ?>
+                                                            </ul>
+                                                        </li>
+                                                        <?php
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <?php
-                            }
+                                                ?>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <?php
+                                }
                             }
                             ?>
                         </li>
@@ -147,26 +147,26 @@
                         <li class="nav-item mobile-dropdown"><a href="#">Outlets</a>
                             <ul class="mobile-submenu">
                                 <li><a href="{{ URL('/bestbuyoutlets') }}" class="rfl-outlet-item">
-                                   RFL Best Buy
-                                </a></li>
+                                        RFL Best Buy
+                                    </a></li>
                                 <li><a href="{{ URL('/exclusiveoutlets') }}" class="rfl-outlet-item">
-                                    RFL Carnival
-                                </a></li>
+                                        RFL Carnival
+                                    </a></li>
                                 <li><a href="{{ URL('/carnivaoutlets') }}" class="rfl-outlet-item">
-                                    RFL Exclusive
-                                </a></li>
+                                        RFL Exclusive
+                                    </a></li>
                             </ul>
                         </li>
                     </ul>
                     <div class="share-area d-flex justify-content-center pt-4">
                         @foreach($social as $socials)
-                            <a href="{{ $socials->website_url }}" target="b_blank"><i class="{{ $socials->icon_class }}"></i></a>
+                        <a href="{{ $socials->website_url }}" target="b_blank"><i class="{{ $socials->icon_class }}"></i></a>
                         @endforeach
                     </div>
                 </div>
                 <div class="outlet-area-mm">
                     <div class="rfl-outlet-content-mm">
-                       <a class="buy-online">Buy Online</a>
+                        <a class="buy-online">Buy Online</a>
                     </div>
                 </div>
             </div>
@@ -187,7 +187,7 @@
                         <div class="col-lg-6">
                             <ul class="social-media-list d-flex justify-content-center justify-content-lg-end m-0 p-0 list-unstyled">
                                 @foreach($social as $socials)
-                                    <li><a href="{{ $socials->website_url }}" target="b_blank"><i class="{{ $socials->icon_class }}"></i></a></li>
+                                <li><a href="{{ $socials->website_url }}" target="b_blank"><i class="{{ $socials->icon_class }}"></i></a></li>
                                 @endforeach
                             </ul>
                         </div> 
@@ -307,9 +307,9 @@
                                 </li>
                                 <li class="nav-item" id="blog"><a href="{{ URL('/blog') }}">Blog</a></li>
                             </ul>
-    						 <ul class="menu-action list-unstyled d-flex align-items-center">
+                            <ul class="menu-action list-unstyled d-flex align-items-center">
                                 <li class="search-option"><i class="fas fa-search"></i></li>
-                          <!---      <li class="global"><a href="http://global.rflhouseware.com"  target="_blank"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></li> !---->
+                                <li class="global"><a href="http://global.rflhouseware.com"  target="_blank"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></li>
                                 <li class="shop ml--20"><a class="shop-btn" href="https://othoba.com/rfl"  target="_blank"><span><i class="fas fa-shopping-cart"></i>Shop Online</span></a></li>
                             </ul>
                         </div>
@@ -331,7 +331,7 @@
                                 <h6 class="widget-title">Address</h6>
                                 <div class="widge-wrapper">
                                     <address>
-                                    {{ $address[0]->address }}
+                                        {{ $address[0]->address }}
                                     </address>
                                     <ul class="list-unstyled pl-0">
                                         <li>{{ $address[0]->phone }}</li>
@@ -397,7 +397,7 @@
                         <div class="col-lg-6">
                             <ul class="social-media-list d-flex justify-content-end m-0 p-0 list-unstyled">
                                 @foreach($social as $socials)
-                                    <li><a href="{{ $socials->website_url }}" target="b_blank"><i class="{{ $socials->icon_class }}"></i></a></li>
+                                <li><a href="{{ $socials->website_url }}" target="b_blank"><i class="{{ $socials->icon_class }}"></i></a></li>
                                 @endforeach
                             </ul>
                         </div>

@@ -90,24 +90,21 @@
                                     @endif
                                 </div>
                             </div> !---->
-
+                            <?php
+                            $colors = $product_info->product_colors;
+                            if($colors[0] != NULL):
+                            ?>
                             <div class="color-variation">
                                 <h6>Color:</h6>
                                 <?php
-                                $colors = $product_info->product_colors;
-                                
-                                
-                                
                                 foreach ($colors as $color) {
-                           
                                     ?>
-                                    <a class="color" href="#" style="background-color: <?php echo $color ?>"></a>
+                                    <a class="color" href="#" style="background-color: <?php echo $color ? $color : '#FFFFFF' ?>"></a>
                                     <?php
-                           
                                 }
-                            
                                 ?>
                             </div>
+                            <?php endif ?>
                              <div class="d-flex flex-wrap">
                                  @if($product_info->discount)
 								<div class="offer">

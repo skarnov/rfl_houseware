@@ -89,7 +89,7 @@
                                         </td>
                                         <td>
                                             <a href="edit_subcategory/{{ $category->subcategory_id }}" class="btn btn-sm btn-outline-success" title="Edit"><i class="icon-pencil"></i></a>
-<!--                                            <a href="javascript:;" data-id="{{ $category->subcategory_id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>-->
+                                            <a href="javascript:;" data-id="{{ $category->subcategory_id }}" class="btn btn-sm btn-outline-danger show-alert" title="Delete"><i class="icon-trash"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -138,7 +138,7 @@
         $(document).on("click", ".show-alert", function (e) {
             var id = $(this).attr("data-id");
             bootbox.confirm({
-                message: "You can not delete this subcategory because it is related to many items. By clicking the 'Yes' button, It will inactive the subcategory",
+                message: "By clicking the 'Yes' button, Sub-Category, Associate Items will be deleted. Are you still want to delete this?",
                 buttons: {
                     confirm: {
                         label: 'Yes',

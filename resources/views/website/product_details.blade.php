@@ -95,11 +95,17 @@
                                 <h6>Color:</h6>
                                 <?php
                                 $colors = $product_info->product_colors;
+                                
+                                
+                                
                                 foreach ($colors as $color) {
+                           
                                     ?>
                                     <a class="color" href="#" style="background-color: <?php echo $color ?>"></a>
                                     <?php
+                           
                                 }
+                            
                                 ?>
                             </div>
                              <div class="d-flex flex-wrap">

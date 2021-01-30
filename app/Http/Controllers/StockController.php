@@ -58,7 +58,7 @@ class StockController extends Controller {
         $data['create_date'] = current_date();
         $data['created_by'] = Auth::user()->id;
         DB::table('categories')->insert($data);
-        return redirect('manage_categories')->with('message', 'Category Saved!');
+        return redirect('manage_categories')->with('success', 'Category Saved!');
     }
 
     public function edit_category($id) {
@@ -90,7 +90,7 @@ class StockController extends Controller {
                 ->update($data);
 
         if ($data['category_status'] == 'inactive') {
-            
+
             /* Inactive Subcategory */
             $inactive_subcategory = array();
             $inactive_subcategory['category_status'] = 'inactive';
@@ -113,9 +113,8 @@ class StockController extends Controller {
             DB::table('categories')
                     ->where('fk_category_id', $subcategory_id)
                     ->update($inactive_item);
-            
         }
-        
+
 //        else if ($data['category_status'] == 'active') {
 //            /* Inactive Subcategory */
 //            $inactive_subcategory = array();
@@ -141,44 +140,57 @@ class StockController extends Controller {
 //                    ->update($inactive_item);
 //        }
 
-        return redirect('manage_categories')->with('message', 'Category Updated!');
+        return redirect('manage_categories')->with('success', 'Category Updated!');
     }
 
     public function delete_category($id) {
+
+        $result['category'] = DB::table('categories')->where('category_id', $id)->delete();
+        $result['subcategory'] = DB::table('categories')->where('fk_category_id', $id)->delete();
+
+//        if ($result['category']) {
+        return redirect('manage_categories')->with('success', 'Category, Associate Subcategories and Items has beed deleted.');
+//        } else {
+//            return redirect('manage_categories')->with('message', 'Error!');
+//        }
+
+
+
         /* Inactive Category */
-        $data = array();
-        $data['category_status'] = 'inactive';
-        $data['modify_time'] = current_time();
-        $data['modify_date'] = current_date();
-        $data['modified_by'] = Auth::user()->id;
-        DB::table('categories')
-                ->where('category_id', $id)
-                ->update($data);
+
+//        $data = array();
+//        $data['category_status'] = 'inactive';
+//        $data['modify_time'] = current_time();
+//        $data['modify_date'] = current_date();
+//        $data['modified_by'] = Auth::user()->id;
+//        DB::table('categories')
+//                ->where('category_id', $id)
+//                ->update($data);
 
         /* Inactive Subcategory */
-        $inactive_subcategory = array();
-        $inactive_subcategory['category_status'] = 'inactive';
-        $inactive_subcategory['modify_time'] = current_time();
-        $inactive_subcategory['modify_date'] = current_date();
-        $inactive_subcategory['modified_by'] = Auth::user()->id;
-        DB::table('categories')
-                ->where('fk_category_id', $id)
-                ->update($inactive_subcategory);
+
+//        $inactive_subcategory = array();
+//        $inactive_subcategory['category_status'] = 'inactive';
+//        $inactive_subcategory['modify_time'] = current_time();
+//        $inactive_subcategory['modify_date'] = current_date();
+//        $inactive_subcategory['modified_by'] = Auth::user()->id;
+//        DB::table('categories')
+//                ->where('fk_category_id', $id)
+//                ->update($inactive_subcategory);
 
         /* Inactive Subcategory Item */
-        $subcategory_id = DB::table('categories')->where('fk_category_id', $id)->first('category_id')->category_id;
 
-        $inactive_item = array();
-        $inactive_item['category_status'] = 'inactive';
-        $inactive_item['modify_time'] = current_time();
-        $inactive_item['modify_date'] = current_date();
-        $inactive_item['modified_by'] = Auth::user()->id;
-
-        DB::table('categories')
-                ->where('fk_category_id', $subcategory_id)
-                ->update($inactive_item);
-
-        return redirect('manage_categories')->with('message', 'Category And Associate Suncategpory,Items Are Inactivate!');
+//        $subcategory_id = DB::table('categories')->where('fk_category_id', $id)->first('category_id')->category_id;
+//
+//        $inactive_item = array();
+//        $inactive_item['category_status'] = 'inactive';
+//        $inactive_item['modify_time'] = current_time();
+//        $inactive_item['modify_date'] = current_date();
+//        $inactive_item['modified_by'] = Auth::user()->id;
+//
+//        DB::table('categories')
+//                ->where('fk_category_id', $subcategory_id)
+//                ->update($inactive_item);
     }
 
     public function manage_subcategories() {
@@ -252,7 +264,7 @@ class StockController extends Controller {
         $data['create_date'] = current_date();
         $data['created_by'] = Auth::user()->id;
         DB::table('categories')->insert($data);
-        return redirect('manage_subcategories')->with('message', 'Subcategory Saved!');
+        return redirect('manage_subcategories')->with('success', 'Subcategory Saved!');
     }
 
     public function edit_subcategory($id) {
@@ -296,8 +308,8 @@ class StockController extends Controller {
             DB::table('categories')
                     ->where('fk_category_id', $id)
                     ->update($inactive_item);
-        } 
-        
+        }
+
 //        else if ($data['category_status'] == 'active') {
 //            $inactive_item = array();
 //            $inactive_item['category_status'] = 'active';
@@ -310,41 +322,51 @@ class StockController extends Controller {
 //                    ->update($inactive_item);
 //        }
 
-        return redirect('manage_subcategories')->with('message', 'Subcategory & Associate Items Are Updated!');
+        return redirect('manage_subcategories')->with('success', 'Subcategory & Associate Items Are Updated!');
     }
 
     public function delete_subcategory($id) {
+
+        $result['subcategory'] = DB::table('categories')->where('category_id', $id)->delete();
+        $result['item'] = DB::table('categories')->where('fk_category_id', $id)->delete();
+
+
+
+
+
         /* Inactive Subcategory Item */
-        $subcategory_id = DB::table('categories')->where('category_id', $id)->first('fk_category_id')->fk_category_id;
 
-        $data = array();
-        $data['category_status'] = 'inactive';
-        $data['modify_time'] = current_time();
-        $data['modify_date'] = current_date();
-        $data['modified_by'] = Auth::user()->id;
+//        $subcategory_id = DB::table('categories')->where('category_id', $id)->first('fk_category_id')->fk_category_id;
+//
+//        $data = array();
+//        $data['category_status'] = 'inactive';
+//        $data['modify_time'] = current_time();
+//        $data['modify_date'] = current_date();
+//        $data['modified_by'] = Auth::user()->id;
+//
+//        DB::table('categories')
+//                ->where('fk_category_id', $subcategory_id)
+//                ->update($data);
 
-        DB::table('categories')
-                ->where('fk_category_id', $subcategory_id)
-                ->update($data);
+        /* Inactive Subcategory Item */
 
-         /* Inactive Subcategory Item */
-        if ($data['category_status'] == 'inactive') {
-            $inactive_item = array();
-            $inactive_item['category_status'] = 'inactive';
-            $inactive_item['modify_time'] = current_time();
-            $inactive_item['modify_date'] = current_date();
-            $inactive_item['modified_by'] = Auth::user()->id;
+//        if ($data['category_status'] == 'inactive') {
+//            $inactive_item = array();
+//            $inactive_item['category_status'] = 'inactive';
+//            $inactive_item['modify_time'] = current_time();
+//            $inactive_item['modify_date'] = current_date();
+//            $inactive_item['modified_by'] = Auth::user()->id;
+//
+//            DB::table('categories')
+//                    ->where('fk_category_id', $id)
+//                    ->update($inactive_item);
+//        }
+//
+//        DB::table('categories')
+//                ->where('fk_category_id', $id)
+//                ->update($data);
 
-            DB::table('categories')
-                    ->where('fk_category_id', $id)
-                    ->update($inactive_item);
-        } 
-
-        DB::table('categories')
-                ->where('fk_category_id', $id)
-                ->update($data);
-
-        return redirect('manage_subcategories')->with('message', 'Subcategory Inactivate!');
+        return redirect('manage_subcategories')->with('success', 'Sub-Category, Associate Items has beed deleted!');
     }
 
     public function manage_items() {
@@ -400,7 +422,7 @@ class StockController extends Controller {
         echo view('stock/filter_item', $data);
     }
 
-    public function add_item() {  
+    public function add_item() {
         $all_subcategory = DB::table('categories AS L0')
                 ->leftJoin('categories AS L1', 'L0.category_id', '=', 'L1.fk_category_id')
                 ->leftJoin('categories AS L2', 'L1.category_id', '=', 'L2.fk_category_id')
@@ -411,7 +433,7 @@ class StockController extends Controller {
                 ->orderBy('L1.category_serial', 'ASC')
                 ->select('L0.category_name AS category_name', 'L1.category_id AS subcategory_id', 'L1.category_name AS subcategory_name', 'L1.category_serial AS subcategory_serial', 'L1.category_status AS subcategory_status')
                 ->get();
-        
+
         $data = array();
         $data['title'] = 'Add Item';
         $data['product_count'] = $this->data['product_count'];
@@ -456,7 +478,7 @@ class StockController extends Controller {
         $data['create_date'] = current_date();
         $data['created_by'] = Auth::user()->id;
         DB::table('categories')->insert($data);
-        return redirect('manage_items')->with('message', 'Item Saved!');
+        return redirect('manage_items')->with('success', 'Item Saved!');
     }
 
     public function edit_item($id) {
@@ -518,13 +540,13 @@ class StockController extends Controller {
         DB::table('categories')
                 ->where('category_id', $request->input('id'))
                 ->update($data);
-        return redirect('manage_items')->with('message', 'Item Updated!');
+        return redirect('manage_items')->with('success', 'Item Updated!');
     }
 
     public function delete_item($id) {
         $result = DB::table('categories')->where('category_id', $id)->delete();
         if ($result) {
-            return redirect('manage_items')->with('message', 'Item Deleted!');
+            return redirect('manage_items')->with('success', 'Item Deleted!');
         } else {
             return redirect('manage_items')->with('error', 'Item Not Deleted!');
         }
@@ -983,9 +1005,9 @@ class StockController extends Controller {
 
         $result = DB::table('products')->where('product_id', $id)->delete();
         if ($result) {
-            return redirect('manage_products')->with('message', 'Product Deleted!');
+            return redirect('manage_products')->with('success', 'Product Deleted!');
         } else {
-            return redirect('manage_products')->with('message', 'Product Not Deleted!');
+            return redirect('manage_products')->with('success', 'Product Not Deleted!');
         }
     }
 

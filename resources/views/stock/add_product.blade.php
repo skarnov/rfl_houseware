@@ -72,8 +72,8 @@
                                                                         </div>-->
 
                                     <div class="form-group">
-                                        <label>Product Colors</label>
-                                        <input type="text" name="colors" placeholder="Please Write All Colors With Comma Separated" class="form-control">
+                                        <label>Product Colors (HEX Code)</label>
+                                        <input type="text" name="colors" placeholder="Please write all Color HEX Code with comma separated" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label>Product Summary </label>

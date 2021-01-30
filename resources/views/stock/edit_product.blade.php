@@ -75,7 +75,7 @@
 
 
                                     <div class="form-group">
-                                        <label>Product Colors</label>
+                                        <label>Product Colors (HEX Code)</label>
                                         <input type="text" name="colors" value="{{ $product_info->product_colors }}" class="form-control">
                                     </div>
                                     <div class="form-group">

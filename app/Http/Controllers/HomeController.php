@@ -119,6 +119,7 @@ class HomeController extends Controller {
                 ->where('products.product_attribute', 'featured')
                 ->where('products.product_status', 'active')
                 ->orderBy('products.product_id', 'DESC')
+                ->limit(7)
                 ->get();
 
         $featured_subcategories = DB::select(DB::raw("SELECT

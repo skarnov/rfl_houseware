@@ -63,7 +63,9 @@
                 <div class="logo">
                     <a class="navbar-brand" href="{{ URL('/') }}"><img src="{{ URL::to('/uploads/') }}{{'/'}}{{ $logo[0]->image_value }}" alt="{{ $settings['project_name'] }}"></a>
                 </div>
-                <div class="global"><a target="b_blank" href="http://global.rflhouseware.com"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></div>
+                @if(Request::getHost() == 'beta.rflhouseware.com')
+                <div class="global"><a target="b_blank" href="https://global.rflhouseware.com"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></div>
+                @endif
                 <div class="close-btn">
                     <span></span>
                     <span></span>
@@ -308,7 +310,9 @@
                             </ul>
                             <ul class="menu-action list-unstyled d-flex align-items-center">
                                 <li class="search-option"><i class="fas fa-search"></i></li>
-                                <li class="global"><a href="http://global.rflhouseware.com"  target="_blank"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="globe"></a></li>
+                                @if(Request::getHost() == 'beta.rflhouseware.com')
+                                <li class="global"><a href="https://global.rflhouseware.com" target="_blank"><img src="{{ URL('/assets/frontend/images/globe.gif') }}" alt="RFL Global"></a></li>
+                                @endif
                                 <li class="shop ml--20"><a class="shop-btn" href="https://othoba.com/rfl"  target="_blank"><span><i class="fas fa-shopping-cart"></i>Shop Online</span></a></li>
                             </ul>
                         </div>
@@ -514,8 +518,10 @@
                         </div>
                         @endforeach
                     </div>
+                    
                     <!-- pagination -->
-                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination" id="desireProductPagination"></div>
+                    
                 </div>
             </div>
         </section>
@@ -758,7 +764,13 @@
                         $("#desireCategories").html('<h3>Searching...</h3>');
                     },
                     success: function (data) {
-                        $("#desireProducts").html(data);
+                        if(!data){
+                            $("#desireProducts").html('<h3>Not Found...</h3>');
+                            $("#desireProductPagination").hide();
+                        } else{
+                            $("#desireProducts").html(data);
+                            $("#desireProductPagination").show();
+                        }
                     }
                 });
 

@@ -118,6 +118,9 @@ class HomeController extends Controller {
                 ->where('products.category_id', $first_category)
                 ->where('products.product_attribute', 'featured')
                 ->where('products.product_status', 'active')
+                ->whereNotNull('category_id')
+                ->whereNotNull('subcategory_id')
+                ->whereNotNull('item_id')
                 ->orderBy('products.product_id', 'DESC')
                 ->limit(7)
                 ->get();
@@ -145,7 +148,10 @@ class HomeController extends Controller {
                 WHERE 
                 products.product_attribute = 'new-arrival' AND
                 products.product_status = 'active' AND 
-                category.category_status = 'active'
+                category.category_status = 'active' AND
+                products.category_id IS NOT NULL AND
+                products.subcategory_id IS NOT NULL AND
+                products.item_id IS NOT NULL
                 ORDER BY products.product_id DESC LIMIT 8"));
 
         $awards = DB::table('contents')
@@ -316,7 +322,16 @@ class HomeController extends Controller {
                 ->first();
 
         $category_name = DB::table('categories')->where('category_id', $product_info->category_id)->first('category_name')->category_name;
-        $subcategory_name = DB::table('categories')->where('category_id', $product_info->subcategory_id)->first('category_name')->category_name;
+
+        $category_exists = DB::table('categories')
+                ->where('category_id', $product_info->subcategory_id)
+                ->first();
+
+        if ($category_exists):
+            $subcategory_name = DB::table('categories')->where('category_id', $product_info->subcategory_id)->first('category_name')->category_name;
+        else:
+            $subcategory_name = 'Undefined Sub-category';
+        endif;
 
         $related_products = DB::table('products')
                 ->where('item_id', $product_info->item_id)
